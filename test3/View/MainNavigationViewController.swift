@@ -1,5 +1,5 @@
 //
-//  WelcomeViewController.swift
+//  MainNavigationViewController.swift
 //  test3
 //
 //  Created by Alexander Batalov on 4/4/19.
@@ -8,14 +8,10 @@
 
 import UIKit
 
-class WelcomeViewController: UIViewController {
-
+class MainNavigationViewController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUI()
-    }
-    
-    private func setupUI() {
-        title = "Welcome"
+        navigationBar.prefersLargeTitles = true
+        navigationItem.largeTitleDisplayMode = .automatic
     }
 }

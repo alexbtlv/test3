@@ -13,6 +13,8 @@
 		8549A5F02255EBED00BEF7A6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8549A5EE2255EBED00BEF7A6 /* LaunchScreen.storyboard */; };
 		8549A5FD2255EE1500BEF7A6 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8549A5FB2255EE1500BEF7A6 /* WelcomeViewController.swift */; };
 		8549A5FE2255EE1500BEF7A6 /* WelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8549A5FC2255EE1500BEF7A6 /* WelcomeViewController.xib */; };
+		8549A6022255EF7F00BEF7A6 /* ABRoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8549A6012255EF7F00BEF7A6 /* ABRoundedButton.swift */; };
+		8549A6042255F1C600BEF7A6 /* MainNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8549A6032255F1C600BEF7A6 /* MainNavigationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +27,8 @@
 		8549A5F12255EBED00BEF7A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8549A5FB2255EE1500BEF7A6 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		8549A5FC2255EE1500BEF7A6 /* WelcomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WelcomeViewController.xib; sourceTree = "<group>"; };
+		8549A6012255EF7F00BEF7A6 /* ABRoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ABRoundedButton.swift; sourceTree = "<group>"; };
+		8549A6032255F1C600BEF7A6 /* MainNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationViewController.swift; sourceTree = "<group>"; };
 		F7D08B450D11128C0BBBDB8B /* Pods-test3.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-test3.debug.xcconfig"; path = "Target Support Files/Pods-test3/Pods-test3.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -81,9 +85,11 @@
 		8549A5F82255ED4400BEF7A6 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				8549A6002255EF5400BEF7A6 /* CustomViews */,
 				8549A5FF2255EE1B00BEF7A6 /* Welcome */,
 				8549A5EC2255EBED00BEF7A6 /* Assets.xcassets */,
 				8549A5EE2255EBED00BEF7A6 /* LaunchScreen.storyboard */,
+				8549A6032255F1C600BEF7A6 /* MainNavigationViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -109,6 +115,14 @@
 				8549A5FC2255EE1500BEF7A6 /* WelcomeViewController.xib */,
 			);
 			path = Welcome;
+			sourceTree = "<group>";
+		};
+		8549A6002255EF5400BEF7A6 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				8549A6012255EF7F00BEF7A6 /* ABRoundedButton.swift */,
+			);
+			path = CustomViews;
 			sourceTree = "<group>";
 		};
 		A0D755BBA18B692CF6CDAE9D /* Pods */ = {
@@ -241,6 +255,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8549A5E62255EBEA00BEF7A6 /* AppDelegate.swift in Sources */,
+				8549A6042255F1C600BEF7A6 /* MainNavigationViewController.swift in Sources */,
+				8549A6022255EF7F00BEF7A6 /* ABRoundedButton.swift in Sources */,
 				8549A5FD2255EE1500BEF7A6 /* WelcomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
