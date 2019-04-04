@@ -6,5 +6,6 @@ target 'test3' do
   use_frameworks!
 
   # Pods for test3
+  pod 'TextFieldEffects'
 
 end
