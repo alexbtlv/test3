@@ -15,6 +15,17 @@
 		8549A5FE2255EE1500BEF7A6 /* WelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8549A5FC2255EE1500BEF7A6 /* WelcomeViewController.xib */; };
 		8549A6022255EF7F00BEF7A6 /* ABRoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8549A6012255EF7F00BEF7A6 /* ABRoundedButton.swift */; };
 		8549A6042255F1C600BEF7A6 /* MainNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8549A6032255F1C600BEF7A6 /* MainNavigationViewController.swift */; };
+		8549A6082256F3CE00BEF7A6 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8549A6062256F3CE00BEF7A6 /* LogInViewController.swift */; };
+		8549A6092256F3CE00BEF7A6 /* LogInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8549A6072256F3CE00BEF7A6 /* LogInViewController.xib */; };
+		8549A60D2256F40700BEF7A6 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8549A60B2256F40700BEF7A6 /* SignUpViewController.swift */; };
+		8549A60E2256F40700BEF7A6 /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8549A60C2256F40700BEF7A6 /* SignUpViewController.xib */; };
+		8549A6102256FFEF00BEF7A6 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8549A60F2256FFEF00BEF7A6 /* UserViewModel.swift */; };
+		8549A613225700A100BEF7A6 /* String_Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8549A612225700A100BEF7A6 /* String_Extensions.swift */; };
+		8549A6152257012A00BEF7A6 /* ViewController_Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8549A6142257012A00BEF7A6 /* ViewController_Extensions.swift */; };
+		8549A617225703D900BEF7A6 /* NewUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8549A616225703D900BEF7A6 /* NewUserViewModel.swift */; };
+		8549A6192257042700BEF7A6 /* Validatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8549A6182257042700BEF7A6 /* Validatable.swift */; };
+		8549A61B2257066700BEF7A6 /* DynamicType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8549A61A2257066700BEF7A6 /* DynamicType.swift */; };
+		8549A61E22570A5600BEF7A6 /* BindingHoshiTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8549A61D22570A5600BEF7A6 /* BindingHoshiTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +40,17 @@
 		8549A5FC2255EE1500BEF7A6 /* WelcomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WelcomeViewController.xib; sourceTree = "<group>"; };
 		8549A6012255EF7F00BEF7A6 /* ABRoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ABRoundedButton.swift; sourceTree = "<group>"; };
 		8549A6032255F1C600BEF7A6 /* MainNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationViewController.swift; sourceTree = "<group>"; };
+		8549A6062256F3CE00BEF7A6 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		8549A6072256F3CE00BEF7A6 /* LogInViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LogInViewController.xib; sourceTree = "<group>"; };
+		8549A60B2256F40700BEF7A6 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		8549A60C2256F40700BEF7A6 /* SignUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
+		8549A60F2256FFEF00BEF7A6 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
+		8549A612225700A100BEF7A6 /* String_Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String_Extensions.swift; sourceTree = "<group>"; };
+		8549A6142257012A00BEF7A6 /* ViewController_Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController_Extensions.swift; sourceTree = "<group>"; };
+		8549A616225703D900BEF7A6 /* NewUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUserViewModel.swift; sourceTree = "<group>"; };
+		8549A6182257042700BEF7A6 /* Validatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validatable.swift; sourceTree = "<group>"; };
+		8549A61A2257066700BEF7A6 /* DynamicType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicType.swift; sourceTree = "<group>"; };
+		8549A61D22570A5600BEF7A6 /* BindingHoshiTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindingHoshiTextField.swift; sourceTree = "<group>"; };
 		F7D08B450D11128C0BBBDB8B /* Pods-test3.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-test3.debug.xcconfig"; path = "Target Support Files/Pods-test3/Pods-test3.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -73,6 +95,8 @@
 		8549A5E42255EBEA00BEF7A6 /* test3 */ = {
 			isa = PBXGroup;
 			children = (
+				8549A61C22570A2600BEF7A6 /* Controls */,
+				8549A6112257007600BEF7A6 /* Extensions */,
 				8549A5FA2255ED5400BEF7A6 /* ViewModel */,
 				8549A5F92255ED4A00BEF7A6 /* Model */,
 				8549A5F82255ED4400BEF7A6 /* View */,
@@ -87,6 +111,8 @@
 			children = (
 				8549A6002255EF5400BEF7A6 /* CustomViews */,
 				8549A5FF2255EE1B00BEF7A6 /* Welcome */,
+				8549A6052256F3A700BEF7A6 /* LogIn */,
+				8549A60A2256F3EB00BEF7A6 /* SignUp */,
 				8549A5EC2255EBED00BEF7A6 /* Assets.xcassets */,
 				8549A5EE2255EBED00BEF7A6 /* LaunchScreen.storyboard */,
 				8549A6032255F1C600BEF7A6 /* MainNavigationViewController.swift */,
@@ -97,6 +123,7 @@
 		8549A5F92255ED4A00BEF7A6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				8549A61A2257066700BEF7A6 /* DynamicType.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -104,6 +131,9 @@
 		8549A5FA2255ED5400BEF7A6 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				8549A60F2256FFEF00BEF7A6 /* UserViewModel.swift */,
+				8549A616225703D900BEF7A6 /* NewUserViewModel.swift */,
+				8549A6182257042700BEF7A6 /* Validatable.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -123,6 +153,41 @@
 				8549A6012255EF7F00BEF7A6 /* ABRoundedButton.swift */,
 			);
 			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		8549A6052256F3A700BEF7A6 /* LogIn */ = {
+			isa = PBXGroup;
+			children = (
+				8549A6062256F3CE00BEF7A6 /* LogInViewController.swift */,
+				8549A6072256F3CE00BEF7A6 /* LogInViewController.xib */,
+			);
+			path = LogIn;
+			sourceTree = "<group>";
+		};
+		8549A60A2256F3EB00BEF7A6 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				8549A60B2256F40700BEF7A6 /* SignUpViewController.swift */,
+				8549A60C2256F40700BEF7A6 /* SignUpViewController.xib */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
+		8549A6112257007600BEF7A6 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				8549A612225700A100BEF7A6 /* String_Extensions.swift */,
+				8549A6142257012A00BEF7A6 /* ViewController_Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		8549A61C22570A2600BEF7A6 /* Controls */ = {
+			isa = PBXGroup;
+			children = (
+				8549A61D22570A5600BEF7A6 /* BindingHoshiTextField.swift */,
+			);
+			path = Controls;
 			sourceTree = "<group>";
 		};
 		A0D755BBA18B692CF6CDAE9D /* Pods */ = {
@@ -194,6 +259,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8549A60E2256F40700BEF7A6 /* SignUpViewController.xib in Resources */,
+				8549A6092256F3CE00BEF7A6 /* LogInViewController.xib in Resources */,
 				8549A5F02255EBED00BEF7A6 /* LaunchScreen.storyboard in Resources */,
 				8549A5ED2255EBED00BEF7A6 /* Assets.xcassets in Resources */,
 				8549A5FE2255EE1500BEF7A6 /* WelcomeViewController.xib in Resources */,
@@ -254,10 +321,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8549A613225700A100BEF7A6 /* String_Extensions.swift in Sources */,
+				8549A60D2256F40700BEF7A6 /* SignUpViewController.swift in Sources */,
 				8549A5E62255EBEA00BEF7A6 /* AppDelegate.swift in Sources */,
+				8549A61B2257066700BEF7A6 /* DynamicType.swift in Sources */,
 				8549A6042255F1C600BEF7A6 /* MainNavigationViewController.swift in Sources */,
+				8549A617225703D900BEF7A6 /* NewUserViewModel.swift in Sources */,
 				8549A6022255EF7F00BEF7A6 /* ABRoundedButton.swift in Sources */,
+				8549A6082256F3CE00BEF7A6 /* LogInViewController.swift in Sources */,
+				8549A6102256FFEF00BEF7A6 /* UserViewModel.swift in Sources */,
+				8549A61E22570A5600BEF7A6 /* BindingHoshiTextField.swift in Sources */,
 				8549A5FD2255EE1500BEF7A6 /* WelcomeViewController.swift in Sources */,
+				8549A6152257012A00BEF7A6 /* ViewController_Extensions.swift in Sources */,
+				8549A6192257042700BEF7A6 /* Validatable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

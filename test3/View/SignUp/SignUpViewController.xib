@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SignUpViewController" customModule="test3" customModuleProvider="target">
+            <connections>
+                <outlet property="emailTextField" destination="mXJ-Qy-odV" id="c0n-qF-eUW"/>
+                <outlet property="nameTextField" destination="Spr-82-LDF" id="vph-Sk-HfE"/>
+                <outlet property="passwordTextField" destination="R3p-QL-Zo8" id="4mW-7I-Eel"/>
+                <outlet property="repeatPasswordTextField" destination="G6z-K6-hbN" id="aMk-yY-CJD"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please sign up for PW Account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zhp-Ew-js7">
+                    <rect key="frame" x="20" y="94" width="374" height="21"/>
+                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Please enter your name" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Spr-82-LDF" customClass="BindingHoshiTextField" customModule="test3" customModuleProvider="target">
+                    <rect key="frame" x="20" y="145" width="374" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="Fce-Q8-Q4z"/>
+                    </constraints>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="words" textContentType="name"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="placeholderFontScale">
+                            <real key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="borderInactiveColor">
+                            <color key="value" cocoaTouchSystemColor="lightTextColor"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="borderActiveColor">
+                            <color key="value" red="1" green="0.60784313729999995" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </textField>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="mXJ-Qy-odV" customClass="BindingHoshiTextField" customModule="test3" customModuleProvider="target">
+                    <rect key="frame" x="20" y="205" width="374" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="4NY-nr-WM6"/>
+                    </constraints>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="words" keyboardType="emailAddress" textContentType="email"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="placeholderFontScale">
+                            <real key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="borderInactiveColor">
+                            <color key="value" cocoaTouchSystemColor="lightTextColor"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="borderActiveColor">
+                            <color key="value" red="1" green="0.60784313729999995" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </textField>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="R3p-QL-Zo8" customClass="BindingHoshiTextField" customModule="test3" customModuleProvider="target">
+                    <rect key="frame" x="20" y="265" width="374" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="s3K-pu-a3P"/>
+                    </constraints>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="words" secureTextEntry="YES" textContentType="password"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="placeholderFontScale">
+                            <real key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="borderInactiveColor">
+                            <color key="value" cocoaTouchSystemColor="lightTextColor"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="borderActiveColor">
+                            <color key="value" red="1" green="0.60784313729999995" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </textField>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Repeat Password" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="G6z-K6-hbN" customClass="BindingHoshiTextField" customModule="test3" customModuleProvider="target">
+                    <rect key="frame" x="20" y="325" width="374" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="2hW-Bf-QFG"/>
+                    </constraints>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="words" secureTextEntry="YES" textContentType="password"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="placeholderFontScale">
+                            <real key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="borderInactiveColor">
+                            <color key="value" cocoaTouchSystemColor="lightTextColor"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="borderActiveColor">
+                            <color key="value" red="1" green="0.60784313729999995" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6ea-Uh-tFx" customClass="ABRoundedButton" customModule="test3" customModuleProvider="target">
+                    <rect key="frame" x="132" y="385" width="150" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="150" id="5Qz-lh-sTe"/>
+                        <constraint firstAttribute="height" constant="44" id="dD6-4c-CB3"/>
+                    </constraints>
+                    <state key="normal" title="Sign Up">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="backgroundImageColor">
+                            <color key="value" red="1" green="0.60784313729999995" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="22"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="signUpButtonTapped:" destination="-1" eventType="touchUpInside" id="bQ4-Yx-vNI"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="R3p-QL-Zo8" firstAttribute="top" secondItem="mXJ-Qy-odV" secondAttribute="bottom" constant="20" id="0Wr-GP-ZMx"/>
+                <constraint firstItem="mXJ-Qy-odV" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="C7b-GR-e6t"/>
+                <constraint firstItem="6ea-Uh-tFx" firstAttribute="top" secondItem="G6z-K6-hbN" secondAttribute="bottom" constant="20" id="HNw-8R-R6A"/>
+                <constraint firstItem="zhp-Ew-js7" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="50" id="Lbl-fW-jX0"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="mXJ-Qy-odV" secondAttribute="trailing" constant="20" id="Pg7-Tc-zN5"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="zhp-Ew-js7" secondAttribute="trailing" constant="20" id="Psr-yh-zAE"/>
+                <constraint firstItem="Spr-82-LDF" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="Sk5-xK-zmu"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Spr-82-LDF" secondAttribute="trailing" constant="20" id="TRS-TC-04X"/>
+                <constraint firstItem="Spr-82-LDF" firstAttribute="top" secondItem="zhp-Ew-js7" secondAttribute="bottom" constant="30" id="Xx9-5i-OQI"/>
+                <constraint firstItem="G6z-K6-hbN" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="ZiE-Ej-fOe"/>
+                <constraint firstItem="6ea-Uh-tFx" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="bHu-aU-uH5"/>
+                <constraint firstItem="mXJ-Qy-odV" firstAttribute="top" secondItem="Spr-82-LDF" secondAttribute="bottom" constant="20" id="e9I-cb-Qyv"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="G6z-K6-hbN" secondAttribute="trailing" constant="20" id="hU3-JI-R7a"/>
+                <constraint firstItem="zhp-Ew-js7" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="qdN-Wt-VKH"/>
+                <constraint firstItem="G6z-K6-hbN" firstAttribute="top" secondItem="R3p-QL-Zo8" secondAttribute="bottom" constant="20" id="raE-g5-dIM"/>
+                <constraint firstItem="R3p-QL-Zo8" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="xsV-R9-7s8"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="R3p-QL-Zo8" secondAttribute="trailing" constant="20" id="zdo-0c-GoU"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="137.68115942028987" y="138.61607142857142"/>
+        </view>
+    </objects>
+</document>
