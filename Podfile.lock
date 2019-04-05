@@ -1,16 +1,24 @@
 PODS:
+  - Alamofire (5.0.0-beta.4)
+  - MBProgressHUD (1.1.0)
   - TextFieldEffects (1.5.1)
 
 DEPENDENCIES:
+  - Alamofire (~> 5.0.0-beta.3)
+  - MBProgressHUD
   - TextFieldEffects
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - MBProgressHUD
     - TextFieldEffects
 
 SPEC CHECKSUMS:
+  Alamofire: 6458d95477bc40adf10129f22c67cfb014162dc8
+  MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
   TextFieldEffects: 7d372f58aeaf9acd9626bbf962680aef926b085d
 
-PODFILE CHECKSUM: b79c9d1599438d1555859ae818fd469b2b43e7c3
+PODFILE CHECKSUM: 3b254ecfd00a541cb4383cc5457db096c604cef9
 
 COCOAPODS: 1.6.0
