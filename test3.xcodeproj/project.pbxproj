@@ -38,6 +38,14 @@
 		8549A63A225721E600BEF7A6 /* UserRegistrationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8549A62E225721E600BEF7A6 /* UserRegistrationManager.swift */; };
 		8549A63B225721E600BEF7A6 /* TestEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8549A630225721E600BEF7A6 /* TestEndPoint.swift */; };
 		8549A63E22572ED600BEF7A6 /* KeychainTokenItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8549A63D22572ED600BEF7A6 /* KeychainTokenItem.swift */; };
+		8549A642225731AE00BEF7A6 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8549A640225731AE00BEF7A6 /* AccountViewController.swift */; };
+		8549A643225731AE00BEF7A6 /* AccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8549A641225731AE00BEF7A6 /* AccountViewController.xib */; };
+		8549A645225732C800BEF7A6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8549A644225732C800BEF7A6 /* User.swift */; };
+		8549A64C2257374500BEF7A6 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8549A64A2257374500BEF7A6 /* SplashViewController.swift */; };
+		8549A64D2257374500BEF7A6 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8549A64B2257374500BEF7A6 /* RootViewController.swift */; };
+		8549A650225737CF00BEF7A6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8549A64F225737CF00BEF7A6 /* Constants.swift */; };
+		8549A65422573CC300BEF7A6 /* TransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8549A65222573CC300BEF7A6 /* TransactionTableViewCell.swift */; };
+		8549A65522573CC300BEF7A6 /* TransactionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8549A65322573CC300BEF7A6 /* TransactionTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,6 +83,14 @@
 		8549A62E225721E600BEF7A6 /* UserRegistrationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRegistrationManager.swift; sourceTree = "<group>"; };
 		8549A630225721E600BEF7A6 /* TestEndPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestEndPoint.swift; sourceTree = "<group>"; };
 		8549A63D22572ED600BEF7A6 /* KeychainTokenItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainTokenItem.swift; sourceTree = "<group>"; };
+		8549A640225731AE00BEF7A6 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
+		8549A641225731AE00BEF7A6 /* AccountViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountViewController.xib; sourceTree = "<group>"; };
+		8549A644225732C800BEF7A6 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		8549A64A2257374500BEF7A6 /* SplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		8549A64B2257374500BEF7A6 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		8549A64F225737CF00BEF7A6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		8549A65222573CC300BEF7A6 /* TransactionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTableViewCell.swift; sourceTree = "<group>"; };
+		8549A65322573CC300BEF7A6 /* TransactionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionTableViewCell.xib; sourceTree = "<group>"; };
 		F7D08B450D11128C0BBBDB8B /* Pods-test3.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-test3.debug.xcconfig"; path = "Target Support Files/Pods-test3/Pods-test3.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -119,6 +135,7 @@
 		8549A5E42255EBEA00BEF7A6 /* test3 */ = {
 			isa = PBXGroup;
 			children = (
+				8549A64E225737B500BEF7A6 /* Helpers */,
 				8549A63C22572EB000BEF7A6 /* Security */,
 				8549A61F225712A200BEF7A6 /* Networking */,
 				8549A61C22570A2600BEF7A6 /* Controls */,
@@ -135,6 +152,7 @@
 		8549A5F82255ED4400BEF7A6 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				8549A63F2257315B00BEF7A6 /* Account */,
 				8549A6002255EF5400BEF7A6 /* CustomViews */,
 				8549A5FF2255EE1B00BEF7A6 /* Welcome */,
 				8549A6052256F3A700BEF7A6 /* LogIn */,
@@ -142,6 +160,8 @@
 				8549A5EC2255EBED00BEF7A6 /* Assets.xcassets */,
 				8549A5EE2255EBED00BEF7A6 /* LaunchScreen.storyboard */,
 				8549A6032255F1C600BEF7A6 /* MainNavigationViewController.swift */,
+				8549A64B2257374500BEF7A6 /* RootViewController.swift */,
+				8549A64A2257374500BEF7A6 /* SplashViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -150,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				8549A61A2257066700BEF7A6 /* DynamicType.swift */,
+				8549A644225732C800BEF7A6 /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -274,6 +295,33 @@
 			path = Security;
 			sourceTree = "<group>";
 		};
+		8549A63F2257315B00BEF7A6 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				8549A65122573C9F00BEF7A6 /* TransactionCell */,
+				8549A640225731AE00BEF7A6 /* AccountViewController.swift */,
+				8549A641225731AE00BEF7A6 /* AccountViewController.xib */,
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
+		8549A64E225737B500BEF7A6 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				8549A64F225737CF00BEF7A6 /* Constants.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		8549A65122573C9F00BEF7A6 /* TransactionCell */ = {
+			isa = PBXGroup;
+			children = (
+				8549A65222573CC300BEF7A6 /* TransactionTableViewCell.swift */,
+				8549A65322573CC300BEF7A6 /* TransactionTableViewCell.xib */,
+			);
+			path = TransactionCell;
+			sourceTree = "<group>";
+		};
 		A0D755BBA18B692CF6CDAE9D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -347,6 +395,8 @@
 				8549A6092256F3CE00BEF7A6 /* LogInViewController.xib in Resources */,
 				8549A5F02255EBED00BEF7A6 /* LaunchScreen.storyboard in Resources */,
 				8549A5ED2255EBED00BEF7A6 /* Assets.xcassets in Resources */,
+				8549A65522573CC300BEF7A6 /* TransactionTableViewCell.xib in Resources */,
+				8549A643225731AE00BEF7A6 /* AccountViewController.xib in Resources */,
 				8549A5FE2255EE1500BEF7A6 /* WelcomeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -411,8 +461,13 @@
 			files = (
 				8549A613225700A100BEF7A6 /* String_Extensions.swift in Sources */,
 				8549A60D2256F40700BEF7A6 /* SignUpViewController.swift in Sources */,
+				8549A65422573CC300BEF7A6 /* TransactionTableViewCell.swift in Sources */,
+				8549A642225731AE00BEF7A6 /* AccountViewController.swift in Sources */,
 				8549A639225721E600BEF7A6 /* NetworkError.swift in Sources */,
 				8549A631225721E600BEF7A6 /* NetworkRouter.swift in Sources */,
+				8549A650225737CF00BEF7A6 /* Constants.swift in Sources */,
+				8549A64D2257374500BEF7A6 /* RootViewController.swift in Sources */,
+				8549A645225732C800BEF7A6 /* User.swift in Sources */,
 				8549A635225721E600BEF7A6 /* EndPointType.swift in Sources */,
 				8549A638225721E600BEF7A6 /* JSONParameterEncoder.swift in Sources */,
 				8549A5E62255EBEA00BEF7A6 /* AppDelegate.swift in Sources */,
@@ -426,6 +481,7 @@
 				8549A63B225721E600BEF7A6 /* TestEndPoint.swift in Sources */,
 				8549A6082256F3CE00BEF7A6 /* LogInViewController.swift in Sources */,
 				8549A6102256FFEF00BEF7A6 /* UserViewModel.swift in Sources */,
+				8549A64C2257374500BEF7A6 /* SplashViewController.swift in Sources */,
 				8549A61E22570A5600BEF7A6 /* BindingHoshiTextField.swift in Sources */,
 				8549A633225721E600BEF7A6 /* HTTPMethod.swift in Sources */,
 				8549A632225721E600BEF7A6 /* HTTPTask.swift in Sources */,

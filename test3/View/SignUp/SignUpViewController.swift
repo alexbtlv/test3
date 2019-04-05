@@ -40,6 +40,7 @@ class SignUpViewController: UIViewController {
         repeatPasswordTextField.bind { [unowned self] in
             self.newUser.confirmPassword.value = $0
         }
+        
     }
     
     @IBAction func signUpButtonTapped(_ sender: Any) {
@@ -57,9 +58,9 @@ class SignUpViewController: UIViewController {
                         case .failure(let errorMessage):
                                 self.showAlert(withMessage: errorMessage)
                         case .success:
-                            // proceed to the account
+                            AppDelegate.shared.rootViewController.showAccountScreen()
                         }
-                        
+        
                     }
                 })
             }

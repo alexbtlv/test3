@@ -12,16 +12,20 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    static var shared: AppDelegate {
+        return UIApplication.shared.delegate as! AppDelegate
+    }
+    var rootViewController: RootViewController {
+        return window!.rootViewController as! RootViewController
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
-        let welcomeVC = WelcomeViewController(nibName: "WelcomeViewController", bundle: nil)
-        let navVC = MainNavigationViewController()
-        navVC.addChild(welcomeVC)
-        window!.rootViewController = navVC
+        let rootVC = RootViewController()
+        window!.rootViewController = rootVC
         window!.makeKeyAndVisible()
         return true
+        
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
