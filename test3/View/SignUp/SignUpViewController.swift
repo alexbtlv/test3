@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 class SignUpViewController: UIViewController {
 
@@ -16,6 +17,7 @@ class SignUpViewController: UIViewController {
     @IBOutlet private weak var repeatPasswordTextField: BindingHoshiTextField!
     
     var newUser = NewUserViewModel()
+    let registrationService = UserRegistrationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,9 +44,25 @@ class SignUpViewController: UIViewController {
     
     @IBAction func signUpButtonTapped(_ sender: Any) {
         if newUser.isValid {
-            // send .post req to register new user
+            MBProgressHUD.showAdded(to: view, animated: true)
             
-            // handle response
+            DispatchQueue.global().async { [weak self] in
+                guard let self = self else { return }
+                
+                self.registrationService.registerUser(user: self.newUser, completion: { result in
+                    DispatchQueue.main.async {
+                        
+                        MBProgressHUD.hide(for: self.view, animated: true)
+                        switch result {
+                        case .failure(let errorMessage):
+                                self.showAlert(withMessage: errorMessage)
+                        case .success:
+                            // proceed to the account
+                        }
+                        
+                    }
+                })
+            }
         } else {
             showAlert(withMessage: newUser.validationMessage)
         }

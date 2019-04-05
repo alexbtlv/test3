@@ -8,6 +8,5 @@ target 'test3' do
   # Pods for test3
   pod 'TextFieldEffects'
   pod 'MBProgressHUD'
-  pod 'Alamofire', '~> 5.0.0-beta.3'
 
 end

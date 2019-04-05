@@ -26,6 +26,18 @@
 		8549A6192257042700BEF7A6 /* Validatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8549A6182257042700BEF7A6 /* Validatable.swift */; };
 		8549A61B2257066700BEF7A6 /* DynamicType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8549A61A2257066700BEF7A6 /* DynamicType.swift */; };
 		8549A61E22570A5600BEF7A6 /* BindingHoshiTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8549A61D22570A5600BEF7A6 /* BindingHoshiTextField.swift */; };
+		8549A631225721E600BEF7A6 /* NetworkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8549A623225721E600BEF7A6 /* NetworkRouter.swift */; };
+		8549A632225721E600BEF7A6 /* HTTPTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8549A624225721E600BEF7A6 /* HTTPTask.swift */; };
+		8549A633225721E600BEF7A6 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8549A625225721E600BEF7A6 /* HTTPMethod.swift */; };
+		8549A634225721E600BEF7A6 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8549A626225721E600BEF7A6 /* Router.swift */; };
+		8549A635225721E600BEF7A6 /* EndPointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8549A627225721E600BEF7A6 /* EndPointType.swift */; };
+		8549A636225721E600BEF7A6 /* ParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8549A629225721E600BEF7A6 /* ParameterEncoder.swift */; };
+		8549A637225721E600BEF7A6 /* URLParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8549A62A225721E600BEF7A6 /* URLParameterEncoder.swift */; };
+		8549A638225721E600BEF7A6 /* JSONParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8549A62B225721E600BEF7A6 /* JSONParameterEncoder.swift */; };
+		8549A639225721E600BEF7A6 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8549A62C225721E600BEF7A6 /* NetworkError.swift */; };
+		8549A63A225721E600BEF7A6 /* UserRegistrationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8549A62E225721E600BEF7A6 /* UserRegistrationManager.swift */; };
+		8549A63B225721E600BEF7A6 /* TestEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8549A630225721E600BEF7A6 /* TestEndPoint.swift */; };
+		8549A63E22572ED600BEF7A6 /* KeychainTokenItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8549A63D22572ED600BEF7A6 /* KeychainTokenItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +63,18 @@
 		8549A6182257042700BEF7A6 /* Validatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validatable.swift; sourceTree = "<group>"; };
 		8549A61A2257066700BEF7A6 /* DynamicType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicType.swift; sourceTree = "<group>"; };
 		8549A61D22570A5600BEF7A6 /* BindingHoshiTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindingHoshiTextField.swift; sourceTree = "<group>"; };
+		8549A623225721E600BEF7A6 /* NetworkRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkRouter.swift; sourceTree = "<group>"; };
+		8549A624225721E600BEF7A6 /* HTTPTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPTask.swift; sourceTree = "<group>"; };
+		8549A625225721E600BEF7A6 /* HTTPMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		8549A626225721E600BEF7A6 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		8549A627225721E600BEF7A6 /* EndPointType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndPointType.swift; sourceTree = "<group>"; };
+		8549A629225721E600BEF7A6 /* ParameterEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParameterEncoder.swift; sourceTree = "<group>"; };
+		8549A62A225721E600BEF7A6 /* URLParameterEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLParameterEncoder.swift; sourceTree = "<group>"; };
+		8549A62B225721E600BEF7A6 /* JSONParameterEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONParameterEncoder.swift; sourceTree = "<group>"; };
+		8549A62C225721E600BEF7A6 /* NetworkError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		8549A62E225721E600BEF7A6 /* UserRegistrationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRegistrationManager.swift; sourceTree = "<group>"; };
+		8549A630225721E600BEF7A6 /* TestEndPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestEndPoint.swift; sourceTree = "<group>"; };
+		8549A63D22572ED600BEF7A6 /* KeychainTokenItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainTokenItem.swift; sourceTree = "<group>"; };
 		F7D08B450D11128C0BBBDB8B /* Pods-test3.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-test3.debug.xcconfig"; path = "Target Support Files/Pods-test3/Pods-test3.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -95,6 +119,8 @@
 		8549A5E42255EBEA00BEF7A6 /* test3 */ = {
 			isa = PBXGroup;
 			children = (
+				8549A63C22572EB000BEF7A6 /* Security */,
+				8549A61F225712A200BEF7A6 /* Networking */,
 				8549A61C22570A2600BEF7A6 /* Controls */,
 				8549A6112257007600BEF7A6 /* Extensions */,
 				8549A5FA2255ED5400BEF7A6 /* ViewModel */,
@@ -188,6 +214,64 @@
 				8549A61D22570A5600BEF7A6 /* BindingHoshiTextField.swift */,
 			);
 			path = Controls;
+			sourceTree = "<group>";
+		};
+		8549A61F225712A200BEF7A6 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				8549A628225721E600BEF7A6 /* Encoding */,
+				8549A62F225721E600BEF7A6 /* EndPoint */,
+				8549A62D225721E600BEF7A6 /* Manager */,
+				8549A622225721E600BEF7A6 /* Service */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		8549A622225721E600BEF7A6 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				8549A623225721E600BEF7A6 /* NetworkRouter.swift */,
+				8549A624225721E600BEF7A6 /* HTTPTask.swift */,
+				8549A625225721E600BEF7A6 /* HTTPMethod.swift */,
+				8549A626225721E600BEF7A6 /* Router.swift */,
+				8549A627225721E600BEF7A6 /* EndPointType.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		8549A628225721E600BEF7A6 /* Encoding */ = {
+			isa = PBXGroup;
+			children = (
+				8549A629225721E600BEF7A6 /* ParameterEncoder.swift */,
+				8549A62A225721E600BEF7A6 /* URLParameterEncoder.swift */,
+				8549A62B225721E600BEF7A6 /* JSONParameterEncoder.swift */,
+				8549A62C225721E600BEF7A6 /* NetworkError.swift */,
+			);
+			path = Encoding;
+			sourceTree = "<group>";
+		};
+		8549A62D225721E600BEF7A6 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				8549A62E225721E600BEF7A6 /* UserRegistrationManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		8549A62F225721E600BEF7A6 /* EndPoint */ = {
+			isa = PBXGroup;
+			children = (
+				8549A630225721E600BEF7A6 /* TestEndPoint.swift */,
+			);
+			path = EndPoint;
+			sourceTree = "<group>";
+		};
+		8549A63C22572EB000BEF7A6 /* Security */ = {
+			isa = PBXGroup;
+			children = (
+				8549A63D22572ED600BEF7A6 /* KeychainTokenItem.swift */,
+			);
+			path = Security;
 			sourceTree = "<group>";
 		};
 		A0D755BBA18B692CF6CDAE9D /* Pods */ = {
@@ -327,16 +411,28 @@
 			files = (
 				8549A613225700A100BEF7A6 /* String_Extensions.swift in Sources */,
 				8549A60D2256F40700BEF7A6 /* SignUpViewController.swift in Sources */,
+				8549A639225721E600BEF7A6 /* NetworkError.swift in Sources */,
+				8549A631225721E600BEF7A6 /* NetworkRouter.swift in Sources */,
+				8549A635225721E600BEF7A6 /* EndPointType.swift in Sources */,
+				8549A638225721E600BEF7A6 /* JSONParameterEncoder.swift in Sources */,
 				8549A5E62255EBEA00BEF7A6 /* AppDelegate.swift in Sources */,
+				8549A634225721E600BEF7A6 /* Router.swift in Sources */,
 				8549A61B2257066700BEF7A6 /* DynamicType.swift in Sources */,
 				8549A6042255F1C600BEF7A6 /* MainNavigationViewController.swift in Sources */,
 				8549A617225703D900BEF7A6 /* NewUserViewModel.swift in Sources */,
+				8549A63A225721E600BEF7A6 /* UserRegistrationManager.swift in Sources */,
 				8549A6022255EF7F00BEF7A6 /* ABRoundedButton.swift in Sources */,
+				8549A637225721E600BEF7A6 /* URLParameterEncoder.swift in Sources */,
+				8549A63B225721E600BEF7A6 /* TestEndPoint.swift in Sources */,
 				8549A6082256F3CE00BEF7A6 /* LogInViewController.swift in Sources */,
 				8549A6102256FFEF00BEF7A6 /* UserViewModel.swift in Sources */,
 				8549A61E22570A5600BEF7A6 /* BindingHoshiTextField.swift in Sources */,
+				8549A633225721E600BEF7A6 /* HTTPMethod.swift in Sources */,
+				8549A632225721E600BEF7A6 /* HTTPTask.swift in Sources */,
 				8549A5FD2255EE1500BEF7A6 /* WelcomeViewController.swift in Sources */,
+				8549A63E22572ED600BEF7A6 /* KeychainTokenItem.swift in Sources */,
 				8549A6152257012A00BEF7A6 /* ViewController_Extensions.swift in Sources */,
+				8549A636225721E600BEF7A6 /* ParameterEncoder.swift in Sources */,
 				8549A6192257042700BEF7A6 /* Validatable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
