@@ -11,4 +11,17 @@ import Foundation
 
 class UserViewModel {
     
+    private let user: User
+    
+    var greetingText: String {
+        return "Hello, " + user.name.capitalized
+    }
+    
+    var balanceText: String {
+        return "\(user.balance)" + " PW"
+    }
+    
+    init(user: User) {
+        self.user = user
+    }
 }

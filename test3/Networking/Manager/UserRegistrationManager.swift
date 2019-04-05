@@ -10,6 +10,7 @@ import Foundation
 
 enum NetworkResponse: String {
     case success
+    case userNotFound = "Oops, user not found"
     case emailTaken = "A user with that email already exists"
     case authenticationError = "You need to be authenticated first."
     case badRequest = "Bad request"
@@ -33,7 +34,7 @@ struct UserRegistrationManager {
     private let router = Router<PWTestEndPoint>()
     
     func registerUser(user: NewUserViewModel, completion: @escaping (UserRegistrationResult) -> ()) {
-        guard let username = user.name.value, let email = user.email.value, let password = user.newPassword.value else {
+        guard let username = user.name.value?.lowercased(), let email = user.email.value?.lowercased(), let password = user.newPassword.value else {
             completion(.failure("Please make sure the name, email and password inputs are valid"))
             return
         }

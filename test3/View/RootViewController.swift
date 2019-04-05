@@ -33,7 +33,7 @@ class RootViewController: UIViewController {
     
     func showWelcomeScreen() {
         let welcomeVC = WelcomeViewController(nibName: "WelcomeViewController", bundle: nil)
-        let new = UINavigationController(rootViewController: welcomeVC)
+        let new = MainNavigationViewController(rootViewController: welcomeVC)
         addChild(new)
         new.view.frame = view.bounds
         view.addSubview(new.view)
@@ -48,16 +48,17 @@ class RootViewController: UIViewController {
     
     func showAccountScreen() {
         let accountVC = AccountViewController(nibName: "AccountViewController", bundle: nil)
-        addChild(accountVC)
-        accountVC.view.frame = view.bounds
-        view.addSubview(accountVC.view)
-        accountVC.didMove(toParent: self)
+        let new = MainNavigationViewController(rootViewController: accountVC)
+        addChild(new)
+        new.view.frame = view.bounds
+        view.addSubview(new.view)
+        new.didMove(toParent: self)
         
         current.willMove(toParent: nil)
         current.view.removeFromSuperview()
         current.removeFromParent()
         
-        current = accountVC
+        current = new
     }
 
 }
