@@ -16,6 +16,12 @@ class WelcomeViewController: UIViewController {
     }
     
     private func setupUI() {
-        title = "Welcome"
+        title = "Hey!"
+    }
+    
+    @IBAction func logInButtonTapped(_ sender: Any) {
+    }
+    
+    @IBAction func signUpButtonTapped(_ sender: Any) {
     }
 }
