@@ -14,7 +14,7 @@ class UserViewModel {
     private let user: User
     
     var greetingText: String {
-        return "Hello, " + user.name.capitalized
+        return "Hey, " + user.name.capitalized + "!"
     }
     
     var balanceText: String {

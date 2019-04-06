@@ -13,10 +13,15 @@ enum UserInfoResult {
     case failure(String)
 }
 
+enum TransactionsResult {
+    case success([TransactionViewModel])
+    case failure(String)
+}
+
 struct UserInfoManager {
     private let router = Router<PWTestEndPoint>()
     
-    func getUserInfo( completion: @escaping (UserInfoResult) -> ()) {
+    func getUserInfo(completion: @escaping (UserInfoResult) -> ()) {
         do {
             let tokenItem = KeychainTokenItem(service: KeychainConfiguration.tokenService, account: KeychainConfiguration.account)
             let token = try tokenItem.readToken()
@@ -36,8 +41,6 @@ struct UserInfoManager {
                         }
                         
                         do {
-                            let json = try JSONSerialization.jsonObject(with: responseData, options: [])
-                            print(json)
                             let userToken = try JSONDecoder().decode(UserToken.self, from: responseData)
                             let userVM = UserViewModel(user: userToken.user)
                             completion(.success(userVM))
@@ -53,6 +56,42 @@ struct UserInfoManager {
             completion(.failure(error.localizedDescription))
         }
         
+    }
+    
+    func getTransactions(completion: @escaping (TransactionsResult)->()) {
+        do {
+            let tokenItem = KeychainTokenItem(service: KeychainConfiguration.tokenService, account: KeychainConfiguration.account)
+            let token = try tokenItem.readToken()
+            
+            router.request(.transactions(token: token)) { (data, response, error) in
+                if error != nil {
+                    completion(.failure("Please check your network connection."))
+                }
+                
+                if let response = response as? HTTPURLResponse {
+                    let result = self.handleNetworkResponse(response)
+                    switch result {
+                    case .success:
+                        guard let responseData = data else {
+                            completion(.failure(NetworkResponse.noData.rawValue))
+                            return
+                        }
+                        
+                        do {
+                            let transToken = try JSONDecoder().decode(TransactionToken.self, from: responseData)
+                            let transactionVMs = transToken.transactions.compactMap { TransactionViewModel($0) }
+                            completion(.success(transactionVMs))
+                        } catch {
+                            completion(.failure(NetworkResponse.unableToDecode.rawValue))
+                        }
+                    case .failure(let errorMessage):
+                        completion(.failure(errorMessage))
+                    }
+                }
+            }
+        } catch {
+            completion(.failure(error.localizedDescription))
+        }
     }
     
     fileprivate func handleNetworkResponse(_ response: HTTPURLResponse) -> NetworkResult<String>{

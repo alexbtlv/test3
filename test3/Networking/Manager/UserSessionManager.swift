@@ -36,7 +36,7 @@ struct UserSessionManager {
                     do {
                         let jsonObject = try? JSONSerialization.jsonObject(with: responseData, options: [])
                         guard let json = jsonObject as? [String: Any], let idToken = json["id_token"] as? String else {
-                            completion(.failure("Can not parse auth token"))
+                            completion(.failure("Can not parse token"))
                             return
                         }
                         // save token to keychain store

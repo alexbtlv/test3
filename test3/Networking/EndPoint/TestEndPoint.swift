@@ -12,6 +12,7 @@ public enum PWTestEndPoint {
     case registration(username: String, email: String, password: String)
     case userInfo(token: String)
     case login(email: String, password: String)
+    case transactions(token: String)
 }
 
 extension PWTestEndPoint: EndPointType {
@@ -27,6 +28,8 @@ extension PWTestEndPoint: EndPointType {
             return "/api/protected/user-info"
         case .login:
             return "/sessions/create"
+        case .transactions:
+            return "/api/protected/transactions"
         }
     }
     
@@ -38,6 +41,8 @@ extension PWTestEndPoint: EndPointType {
             return .get
         case .login:
             return .post
+        case .transactions:
+            return .get
         }
     }
     
@@ -50,13 +55,18 @@ extension PWTestEndPoint: EndPointType {
                 "password" : password
             ]
             return .requestParameters(bodyParameters: bodyParams, urlParameters: nil)
+        
         case .userInfo:
             return .requestParametersAndHeaders(bodyParameters: nil, urlParameters: nil, additionalHeaders: headers!)
+        
         case .login(let email, let password):
             let bodyParams: [String: Any] = [
                 "email" : email,
                 "password" : password ]
             return .requestParameters(bodyParameters: bodyParams, urlParameters: nil)
+        
+        case .transactions:
+            return .requestParametersAndHeaders(bodyParameters: nil, urlParameters: nil, additionalHeaders: headers!)
         }
     }
     
@@ -68,6 +78,8 @@ extension PWTestEndPoint: EndPointType {
             return ["Authorization":"Bearer \(token)"]
         case .login:
             return nil
+        case .transactions(let token):
+            return ["Authorization":"Bearer \(token)"]
         }
     }
     

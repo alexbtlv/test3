@@ -14,10 +14,11 @@ class AccountViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     private let cellReuseIdentifier = "TransactionTableViewCell"
-    private let tableViewHeaderHeight: CGFloat = 250
+    private let tableViewHeaderHeight: CGFloat = 200
     private let userInfoManager = UserInfoManager()
     
     private var userVM: UserViewModel?
+    private var tractionsVM = TransactionsViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,26 +33,48 @@ class AccountViewController: UIViewController {
         tableView.register(cellNib, forCellReuseIdentifier: cellReuseIdentifier)
     }
     
+    private func reloadData() {
+        if tractionsVM.isEmpty {
+            tableView.setEmptyMessage("You don't have any transactions, yet.\n Pull to refresh or create one.")
+        } else {
+            tableView.removeEmptyMessge()
+        }
+        tableView.reloadData()
+    }
+    
     private func fetchUser() {
-        let headerView = tableView.headerView(forSection: 0)
-        MBProgressHUD.showAdded(to: headerView ?? view, animated: true)
+        MBProgressHUD.showAdded(to: view, animated: true)
         
         DispatchQueue.global().async { [weak self] in
             guard let self = self else { return }
             
-            self.userInfoManager.getUserInfo(completion: { (result) in
+            self.userInfoManager.getUserInfo(completion: { result in
                 
                 DispatchQueue.main.async {
-                    MBProgressHUD.hide(for: headerView ?? self.view, animated: true)
+                    MBProgressHUD.hide(for: self.view, animated: true)
                     switch result {
                     case.success(let userViewModel):
                         self.userVM = userViewModel
-                        self.tableView.reloadData()
+                        self.reloadData()
                     case .failure(let error):
                         self.showAlert(withMessage: error)
                     }
                 }
-            })
+            }) // end of get user info
+            
+            self.userInfoManager.getTransactions(completion: { result in
+                DispatchQueue.main.async {
+                    MBProgressHUD.hide(for: self.view, animated: true)
+                    switch result {
+                    case .success(let transactionVMs):
+                        self.tractionsVM.setTransactions(transactionVMs)
+                        self.reloadData()
+                    case .failure(let error):
+                        self.showAlert(withMessage: error)
+                    }
+                }
+                
+            }) // end of get transactions
         }
     }
 }
@@ -60,7 +83,7 @@ class AccountViewController: UIViewController {
 
 extension AccountViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return tractionsVM.numberOfRowsInSection(section)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
