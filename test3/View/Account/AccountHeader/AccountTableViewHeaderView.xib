@@ -9,11 +9,17 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Font Awesome 5 Free-Regular-400.otf">
+            <string>FontAwesome5Free-Regular</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AccountTableViewHeaderView" customModule="test3" customModuleProvider="target">
             <connections>
                 <outlet property="balanceLabel" destination="7Ek-8T-DK1" id="rn7-kS-RIj"/>
                 <outlet property="contentView" destination="iN0-l3-epB" id="oai-pu-1aO"/>
+                <outlet property="sendMoneyBuuton" destination="OYs-cx-cCB" id="dfd-Cw-Whb"/>
                 <outlet property="usernameLabel" destination="KrR-Sm-iTi" id="QX3-XH-m7u"/>
             </connections>
         </placeholder>
@@ -58,11 +64,38 @@
                         <action selector="logOutButtonTapped:" destination="-1" eventType="touchUpInside" id="nWF-SY-S8l"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OYs-cx-cCB" customClass="ABRoundedButton" customModule="test3" customModuleProvider="target">
+                    <rect key="frame" x="342" y="203" width="50" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="8MK-6q-RqO"/>
+                        <constraint firstAttribute="width" constant="50" id="sL3-kM-6te"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="FontAwesome5Free-Regular" family="Font Awesome 5 Free" pointSize="17"/>
+                    <state key="normal" title="money-check-alt">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                            <real key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="25"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                            <color key="value" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="sendMoneyButtonTapped:" destination="-1" eventType="touchUpInside" id="OjE-ek-H6Y"/>
+                    </connections>
+                </button>
             </subviews>
             <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="OYs-cx-cCB" secondAttribute="trailing" constant="20" id="1t8-Bw-SfM"/>
                 <constraint firstItem="7Ek-8T-DK1" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="771-2c-NKm"/>
                 <constraint firstItem="KrR-Sm-iTi" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="50" id="9TD-SR-2sS"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="KrR-Sm-iTi" secondAttribute="trailing" constant="20" id="QJd-Zb-UH8"/>
+                <constraint firstItem="OYs-cx-cCB" firstAttribute="centerY" secondItem="7Ek-8T-DK1" secondAttribute="centerY" id="Ql4-EW-TXM"/>
                 <constraint firstItem="7Ek-8T-DK1" firstAttribute="top" relation="greaterThanOrEqual" secondItem="KrR-Sm-iTi" secondAttribute="bottom" constant="20" id="UQi-zW-glQ"/>
                 <constraint firstItem="KrR-Sm-iTi" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="dka-yw-yxB"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="7Ek-8T-DK1" secondAttribute="bottom" constant="20" id="g4k-73-PeL"/>

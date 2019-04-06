@@ -7,12 +7,14 @@
 //
 
 import UIKit
+import FontAwesome_swift
 
 class AccountTableViewHeaderView: UIView {
 
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var balanceLabel: UILabel!
+    @IBOutlet weak var sendMoneyBuuton: ABRoundedButton!
     
     var userVM: UserViewModel? {
         didSet {
@@ -40,6 +42,8 @@ class AccountTableViewHeaderView: UIView {
     fileprivate func updateUI() {
         usernameLabel.text = userVM?.greetingText
         balanceLabel.text = userVM?.balanceText
+        sendMoneyBuuton.titleLabel?.font = UIFont.fontAwesome(ofSize: 25, style: .solid)
+        sendMoneyBuuton.setTitle(String.fontAwesomeIcon(name: .moneyCheckAlt), for: .normal)
     }
     
     @IBAction func logOutButtonTapped(_ sender: Any) {
@@ -51,5 +55,9 @@ class AccountTableViewHeaderView: UIView {
             print(error)
         }
         
+    }
+    
+    @IBAction func sendMoneyButtonTapped(_ sender: Any) {
+        // show create transaction VC
     }
 }

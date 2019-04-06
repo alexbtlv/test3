@@ -1,24 +1,24 @@
 PODS:
-  - Alamofire (5.0.0-beta.4)
+  - FontAwesome.swift (1.7.0)
   - MBProgressHUD (1.1.0)
   - TextFieldEffects (1.5.1)
 
 DEPENDENCIES:
-  - Alamofire (~> 5.0.0-beta.3)
+  - FontAwesome.swift
   - MBProgressHUD
   - TextFieldEffects
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
-    - Alamofire
+    - FontAwesome.swift
     - MBProgressHUD
     - TextFieldEffects
 
 SPEC CHECKSUMS:
-  Alamofire: 6458d95477bc40adf10129f22c67cfb014162dc8
+  FontAwesome.swift: 9f377615aa61381796dca143cddfd2a388723ea1
   MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
   TextFieldEffects: 7d372f58aeaf9acd9626bbf962680aef926b085d
 
-PODFILE CHECKSUM: 3b254ecfd00a541cb4383cc5457db096c604cef9
+PODFILE CHECKSUM: 03b544e9dbeb3389214f84be456b381fe7c5204f
 
 COCOAPODS: 1.6.0

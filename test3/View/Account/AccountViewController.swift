@@ -7,12 +7,12 @@
 //
 
 import UIKit
-import MBProgressHUD
 
 class AccountViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
+    private let refreshControl = UIRefreshControl()
     private let cellReuseIdentifier = "TransactionTableViewCell"
     private let tableViewHeaderHeight: CGFloat = 200
     private let userInfoManager = UserInfoManager()
@@ -28,9 +28,19 @@ class AccountViewController: UIViewController {
 
     private func setupUI() {
         title = "Account"
+        
         tableView.rowHeight = 100
         let cellNib = UINib(nibName: "TransactionTableViewCell", bundle: nil)
         tableView.register(cellNib, forCellReuseIdentifier: cellReuseIdentifier)
+        
+        // Add Refresh Control to Table View
+        if #available(iOS 10.0, *) {
+            tableView.refreshControl = refreshControl
+        } else {
+            tableView.addSubview(refreshControl)
+        }
+        refreshControl.addTarget(self, action: #selector(fetchUser), for: .valueChanged)
+        refreshControl.attributedTitle = NSAttributedString(string: "Refresing user data ...", attributes: nil)
     }
     
     private func reloadData() {
@@ -42,8 +52,8 @@ class AccountViewController: UIViewController {
         tableView.reloadData()
     }
     
-    private func fetchUser() {
-        MBProgressHUD.showAdded(to: view, animated: true)
+    @objc private func fetchUser() {
+        refreshControl.beginRefreshing()
         
         DispatchQueue.global().async { [weak self] in
             guard let self = self else { return }
@@ -51,7 +61,7 @@ class AccountViewController: UIViewController {
             self.userInfoManager.getUserInfo(completion: { result in
                 
                 DispatchQueue.main.async {
-                    MBProgressHUD.hide(for: self.view, animated: true)
+                    self.refreshControl.endRefreshing()
                     switch result {
                     case.success(let userViewModel):
                         self.userVM = userViewModel
@@ -64,7 +74,7 @@ class AccountViewController: UIViewController {
             
             self.userInfoManager.getTransactions(completion: { result in
                 DispatchQueue.main.async {
-                    MBProgressHUD.hide(for: self.view, animated: true)
+                    self.refreshControl.endRefreshing()
                     switch result {
                     case .success(let transactionVMs):
                         self.tractionsVM.setTransactions(transactionVMs)

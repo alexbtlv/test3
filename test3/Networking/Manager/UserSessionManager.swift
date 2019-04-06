@@ -24,7 +24,6 @@ struct UserSessionManager {
             }
             
             if let response = response as? HTTPURLResponse {
-                print(response.debugDescription)
                 let result = self.handleNetworkResponse(response)
                 switch result {
                 case .success:
