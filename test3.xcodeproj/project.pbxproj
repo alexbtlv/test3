@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5AF469D1CB0FE56049F4D53E /* Pods_test3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 646A2E23D226E8CC3E2B1C1F /* Pods_test3.framework */; };
+		852157B2225841DB00488F5B /* PotentialUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852157B1225841DB00488F5B /* PotentialUserViewModel.swift */; };
 		8549A5E62255EBEA00BEF7A6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8549A5E52255EBEA00BEF7A6 /* AppDelegate.swift */; };
 		8549A5ED2255EBED00BEF7A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8549A5EC2255EBED00BEF7A6 /* Assets.xcassets */; };
 		8549A5F02255EBED00BEF7A6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8549A5EE2255EBED00BEF7A6 /* LaunchScreen.storyboard */; };
@@ -54,6 +55,7 @@
 /* Begin PBXFileReference section */
 		17D1F51EFE663D3A11948226 /* Pods-test3.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-test3.release.xcconfig"; path = "Target Support Files/Pods-test3/Pods-test3.release.xcconfig"; sourceTree = "<group>"; };
 		646A2E23D226E8CC3E2B1C1F /* Pods_test3.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_test3.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		852157B1225841DB00488F5B /* PotentialUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PotentialUserViewModel.swift; sourceTree = "<group>"; };
 		8549A5E22255EBEA00BEF7A6 /* test3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = test3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8549A5E52255EBEA00BEF7A6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8549A5EC2255EBED00BEF7A6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 				8549A60F2256FFEF00BEF7A6 /* UserViewModel.swift */,
 				8549A616225703D900BEF7A6 /* NewUserViewModel.swift */,
 				8549A6182257042700BEF7A6 /* Validatable.swift */,
+				852157B1225841DB00488F5B /* PotentialUserViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -491,6 +494,7 @@
 				8549A65C22574B0F00BEF7A6 /* UserInfoManager.swift in Sources */,
 				8549A5E62255EBEA00BEF7A6 /* AppDelegate.swift in Sources */,
 				8549A634225721E600BEF7A6 /* Router.swift in Sources */,
+				852157B2225841DB00488F5B /* PotentialUserViewModel.swift in Sources */,
 				8549A61B2257066700BEF7A6 /* DynamicType.swift in Sources */,
 				8549A6042255F1C600BEF7A6 /* MainNavigationViewController.swift in Sources */,
 				8549A617225703D900BEF7A6 /* NewUserViewModel.swift in Sources */,
