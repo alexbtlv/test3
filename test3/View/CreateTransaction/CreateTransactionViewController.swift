@@ -7,14 +7,19 @@
 //
 
 import UIKit
-import SearchTextField
 
 class CreateTransactionViewController: UIViewController {
     
-    @IBOutlet private weak var recipientTextField: SearchTextField!
-    @IBOutlet private weak var amountTextField: UITextField!
+    @IBOutlet private weak var recipientTextField: BindingSearchTextField!
+    @IBOutlet private weak var amountTextField: BindingTextField!
     
     private let transactionManager = TransactionManager()
+    private let newTransaction = PotentialTransactionViewModel()
+    var userVM: UserViewModel! {
+        didSet {
+            newTransaction.senderBalance = userVM.balance
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,9 +29,22 @@ class CreateTransactionViewController: UIViewController {
     private func setupUI() {
         title = "Create Transaction"
         recipientTextField.delegate = self
+        recipientTextField.bind { [unowned self] in
+            self.newTransaction.recipient.value = $0
+        }
+        
+        amountTextField.bind { [unowned self] in
+            guard let num = Int($0) else { return }
+            self.newTransaction.amount.value = num
+        }
     }
     
     @IBAction func sendButtonTapped(_ sender: Any) {
+        if newTransaction.isValid {
+            
+        } else {
+            showAlert(withMessage: newTransaction.validationMessage)
+        }
     }
 }
 

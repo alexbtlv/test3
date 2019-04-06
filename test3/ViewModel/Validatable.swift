@@ -9,14 +9,13 @@
 import Foundation
 
 struct BrokenRule {
-    
     var propertyName :String
     var message :String
 }
 
 protocol Validatable {
-    
     var brokenRules :[BrokenRule] { get set}
     var isValid :Bool { mutating get }
+    var validationMessage: String { get }
 }
 

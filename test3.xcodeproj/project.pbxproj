@@ -19,6 +19,7 @@
 		852157C3225895B200488F5B /* View_Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852157C2225895B200488F5B /* View_Extensions.swift */; };
 		852157C52258CEDB00488F5B /* TransactionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852157C42258CEDB00488F5B /* TransactionManager.swift */; };
 		852157C72258D16900488F5B /* Recipient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852157C62258D16900488F5B /* Recipient.swift */; };
+		852157C92258DCC400488F5B /* PotentialTransactionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852157C82258DCC400488F5B /* PotentialTransactionViewModel.swift */; };
 		8549A5E62255EBEA00BEF7A6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8549A5E52255EBEA00BEF7A6 /* AppDelegate.swift */; };
 		8549A5ED2255EBED00BEF7A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8549A5EC2255EBED00BEF7A6 /* Assets.xcassets */; };
 		8549A5F02255EBED00BEF7A6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8549A5EE2255EBED00BEF7A6 /* LaunchScreen.storyboard */; };
@@ -76,6 +77,7 @@
 		852157C2225895B200488F5B /* View_Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View_Extensions.swift; sourceTree = "<group>"; };
 		852157C42258CEDB00488F5B /* TransactionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionManager.swift; sourceTree = "<group>"; };
 		852157C62258D16900488F5B /* Recipient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipient.swift; sourceTree = "<group>"; };
+		852157C82258DCC400488F5B /* PotentialTransactionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PotentialTransactionViewModel.swift; sourceTree = "<group>"; };
 		8549A5E22255EBEA00BEF7A6 /* test3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = test3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8549A5E52255EBEA00BEF7A6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8549A5EC2255EBED00BEF7A6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 				852157B1225841DB00488F5B /* PotentialUserViewModel.swift */,
 				852157B7225861FB00488F5B /* TransactionViewModel.swift */,
 				852157B9225864F400488F5B /* TransactionsViewModel.swift */,
+				852157C82258DCC400488F5B /* PotentialTransactionViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -529,6 +532,7 @@
 				8549A639225721E600BEF7A6 /* NetworkError.swift in Sources */,
 				8549A631225721E600BEF7A6 /* NetworkRouter.swift in Sources */,
 				8549A650225737CF00BEF7A6 /* Constants.swift in Sources */,
+				852157C92258DCC400488F5B /* PotentialTransactionViewModel.swift in Sources */,
 				8549A64D2257374500BEF7A6 /* RootViewController.swift in Sources */,
 				8549A645225732C800BEF7A6 /* User.swift in Sources */,
 				8549A635225721E600BEF7A6 /* EndPointType.swift in Sources */,

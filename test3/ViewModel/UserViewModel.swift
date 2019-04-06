@@ -21,7 +21,17 @@ class UserViewModel {
         return "\(user.balance)" + " PW"
     }
     
+    var balance: Int {
+        return user.balance
+    }
+    
     init(user: User) {
         self.user = user
+    }
+    
+    func logOut() throws {
+        let tokenItem = KeychainTokenItem(service: KeychainConfiguration.tokenService, account: KeychainConfiguration.account)
+        try tokenItem.deleteItem()
+        AppDelegate.shared.rootViewController.showWelcomeScreen()
     }
 }

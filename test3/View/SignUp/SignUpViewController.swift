@@ -16,7 +16,7 @@ class SignUpViewController: UIViewController {
     @IBOutlet private weak var passwordTextField: BindingHoshiTextField!
     @IBOutlet private weak var repeatPasswordTextField: BindingHoshiTextField!
     
-    private var newUser = NewUserViewModel()
+    private let newUser = NewUserViewModel()
     private let registrationService = UserRegistrationManager()
     
     override func viewDidLoad() {
@@ -68,6 +68,4 @@ class SignUpViewController: UIViewController {
             showAlert(withMessage: newUser.validationMessage)
         }
     }
-    
-
 }

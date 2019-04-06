@@ -48,9 +48,7 @@ class AccountTableViewHeaderView: UIView {
     
     @IBAction func logOutButtonTapped(_ sender: Any) {
         do {
-            let tokenItem = KeychainTokenItem(service: KeychainConfiguration.tokenService, account: KeychainConfiguration.account)
-            try tokenItem.deleteItem()
-            AppDelegate.shared.rootViewController.showWelcomeScreen()
+            try userVM?.logOut()
         } catch {
             print(error)
         }
@@ -59,6 +57,7 @@ class AccountTableViewHeaderView: UIView {
     
     @IBAction func sendMoneyButtonTapped(_ sender: Any) {
         let createTransactionVC = CreateTransactionViewController(nibName: "CreateTransactionViewController", bundle: nil)
+        createTransactionVC.userVM = userVM
         parentViewController?.navigationController?.pushViewController(createTransactionVC, animated: true)
     }
 }
