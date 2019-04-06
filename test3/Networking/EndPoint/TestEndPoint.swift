@@ -11,19 +11,22 @@ import Foundation
 public enum PWTestEndPoint {
     case registration(username: String, email: String, password: String)
     case userInfo(token: String)
+    case login(email: String, password: String)
 }
 
 extension PWTestEndPoint: EndPointType {
     var baseURL: URL {
-        return URL(string: "http://193.124.114.46:3001/")!
+        return URL(string: "http://193.124.114.46:3001")!
     }
     
     var path: String {
         switch self {
         case .registration:
-            return "users"
+            return "/users"
         case .userInfo:
-            return "api/protected/user-info"
+            return "/api/protected/user-info"
+        case .login:
+            return "/sessions/create"
         }
     }
     
@@ -33,6 +36,8 @@ extension PWTestEndPoint: EndPointType {
             return .post
         case .userInfo:
             return .get
+        case .login:
+            return .post
         }
     }
     
@@ -46,8 +51,12 @@ extension PWTestEndPoint: EndPointType {
             ]
             return .requestParameters(bodyParameters: bodyParams, urlParameters: nil)
         case .userInfo:
-            print(headers!)
             return .requestParametersAndHeaders(bodyParameters: nil, urlParameters: nil, additionalHeaders: headers!)
+        case .login(let email, let password):
+            let bodyParams: [String: Any] = [
+                "email" : email,
+                "password" : password ]
+            return .requestParameters(bodyParameters: bodyParams, urlParameters: nil)
         }
     }
     
@@ -57,6 +66,8 @@ extension PWTestEndPoint: EndPointType {
             return nil
         case .userInfo(let token):
             return ["Authorization":"Bearer \(token)"]
+        case .login:
+            return nil
         }
     }
     

@@ -15,6 +15,7 @@ class LogInViewController: UIViewController {
     @IBOutlet private weak var passwordTextField: BindingHoshiTextField!
     
     private var user = PotentialUserViewModel()
+    private let sessionManager = UserSessionManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +24,22 @@ class LogInViewController: UIViewController {
 
     @IBAction func logInButtonTapped(_ sender: Any) {
         if user.isValid {
-            
+            MBProgressHUD.showAdded(to: view, animated: true)
+            DispatchQueue.global().async { [weak self] in
+                guard let self = self else { return }
+                
+                self.sessionManager.signInUser(user: self.user, completion: { result in
+                    DispatchQueue.main.async {
+                        MBProgressHUD.hide(for: self.view, animated: true)
+                        switch result {
+                        case .success:
+                            AppDelegate.shared.rootViewController.showAccountScreen()
+                        case .failure(let error):
+                            self.showAlert(withMessage: error)
+                        }
+                    } // end of main async
+                })
+            }
         } else {
             showAlert(withMessage: user.validationMessage)
         }

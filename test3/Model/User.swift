@@ -9,9 +9,18 @@
 import Foundation
 
 
-struct User {
-    let id: String
-    let name: String
-    let email: String
-    let balance: Double
+
+struct UserToken: Codable {
+    let user: User
+    
+    enum CodingKeys: String, CodingKey {
+        case user = "user_info_token"
+    }
 }
+
+struct User: Codable {
+    let id: Int
+    let name, email: String
+    let balance: Int
+}
+
