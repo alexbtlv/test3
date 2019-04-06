@@ -46,24 +46,6 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="03t-bX-vUk" customClass="ABRoundedButton" customModule="test3" customModuleProvider="target">
-                    <rect key="frame" x="315" y="44" width="77" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="Log Out">
-                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </state>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                            <color key="value" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                            <real key="value" value="1"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
-                    <connections>
-                        <action selector="logOutButtonTapped:" destination="-1" eventType="touchUpInside" id="nWF-SY-S8l"/>
-                    </connections>
-                </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OYs-cx-cCB" customClass="ABRoundedButton" customModule="test3" customModuleProvider="target">
                     <rect key="frame" x="342" y="203" width="50" height="50"/>
                     <constraints>
@@ -89,9 +71,31 @@
                         <action selector="sendMoneyButtonTapped:" destination="-1" eventType="touchUpInside" id="OjE-ek-H6Y"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="03t-bX-vUk" customClass="ABRoundedButton" customModule="test3" customModuleProvider="target">
+                    <rect key="frame" x="322" y="89" width="70" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="Qj2-yh-2bP"/>
+                        <constraint firstAttribute="width" constant="70" id="tbG-zU-21A"/>
+                    </constraints>
+                    <state key="normal" title="Log Out">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                            <color key="value" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                            <real key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="logOutButtonTapped:" destination="-1" eventType="touchUpInside" id="nWF-SY-S8l"/>
+                    </connections>
+                </button>
             </subviews>
             <constraints>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="OYs-cx-cCB" secondAttribute="trailing" constant="20" id="1t8-Bw-SfM"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="03t-bX-vUk" secondAttribute="trailing" constant="20" id="4eF-EG-JJW"/>
                 <constraint firstItem="7Ek-8T-DK1" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="771-2c-NKm"/>
                 <constraint firstItem="KrR-Sm-iTi" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="50" id="9TD-SR-2sS"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="KrR-Sm-iTi" secondAttribute="trailing" constant="20" id="QJd-Zb-UH8"/>
@@ -99,6 +103,7 @@
                 <constraint firstItem="7Ek-8T-DK1" firstAttribute="top" relation="greaterThanOrEqual" secondItem="KrR-Sm-iTi" secondAttribute="bottom" constant="20" id="UQi-zW-glQ"/>
                 <constraint firstItem="KrR-Sm-iTi" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="dka-yw-yxB"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="7Ek-8T-DK1" secondAttribute="bottom" constant="20" id="g4k-73-PeL"/>
+                <constraint firstItem="03t-bX-vUk" firstAttribute="centerY" secondItem="KrR-Sm-iTi" secondAttribute="centerY" id="pAA-4y-RVM"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="7Ek-8T-DK1" secondAttribute="trailing" constant="20" id="ywu-fh-2FQ"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
