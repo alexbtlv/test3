@@ -13,6 +13,7 @@ public enum PWTestEndPoint {
     case userInfo(token: String)
     case login(email: String, password: String)
     case transactions(token: String)
+    case filteredUserList(query: String, token: String)
 }
 
 extension PWTestEndPoint: EndPointType {
@@ -30,18 +31,16 @@ extension PWTestEndPoint: EndPointType {
             return "/sessions/create"
         case .transactions:
             return "/api/protected/transactions"
+        case .filteredUserList:
+            return "/api/protected/users/list"
         }
     }
     
     var httpMethod: HTTPMethod {
         switch self {
-        case .registration:
+        case .registration, .login, .filteredUserList:
             return .post
-        case .userInfo:
-            return .get
-        case .login:
-            return .post
-        case .transactions:
+        case .userInfo, .transactions:
             return .get
         }
     }
@@ -67,6 +66,9 @@ extension PWTestEndPoint: EndPointType {
         
         case .transactions:
             return .requestParametersAndHeaders(bodyParameters: nil, urlParameters: nil, additionalHeaders: headers!)
+        case .filteredUserList(let query, _):
+            let bodyParams: [String: Any] = ["filter":query]
+            return .requestParametersAndHeaders(bodyParameters: bodyParams, urlParameters: nil, additionalHeaders: headers!)
         }
     }
     
@@ -74,12 +76,10 @@ extension PWTestEndPoint: EndPointType {
         switch self {
         case .registration:
             return nil
-        case .userInfo(let token):
+        case .userInfo(let token), .transactions(let token), .filteredUserList(_ , let token):
             return ["Authorization":"Bearer \(token)"]
         case .login:
             return nil
-        case .transactions(let token):
-            return ["Authorization":"Bearer \(token)"]
         }
     }
     

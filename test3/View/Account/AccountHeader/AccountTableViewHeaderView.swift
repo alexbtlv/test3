@@ -58,6 +58,8 @@ class AccountTableViewHeaderView: UIView {
     }
     
     @IBAction func sendMoneyButtonTapped(_ sender: Any) {
-        // show create transaction VC
+        let createTransactionVC = CreateTransactionViewController(nibName: "CreateTransactionViewController", bundle: nil)
+        parentViewController?.navigationController?.pushViewController(createTransactionVC, animated: true)
     }
 }
+

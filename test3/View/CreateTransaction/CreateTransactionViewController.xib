@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CreateTransactionViewController" customModule="test3" customModuleProvider="target">
+            <connections>
+                <outlet property="amountTextField" destination="idt-nJ-MNw" id="4o4-Ms-V3a"/>
+                <outlet property="recipientTextField" destination="wyA-ow-aXV" id="4ys-DE-k2A"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recipient" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xp0-7N-Jq1">
+                    <rect key="frame" x="20" y="104" width="71.5" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wyA-ow-aXV" customClass="SearchTextField" customModule="SearchTextField">
+                    <rect key="frame" x="111.5" y="99.5" width="282.5" height="30"/>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="idt-nJ-MNw">
+                    <rect key="frame" x="100" y="149.5" width="294" height="30"/>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                </textField>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xl3-od-byd">
+                    <rect key="frame" x="20" y="154" width="60" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ABp-hc-iqi" customClass="ABRoundedButton" customModule="test3" customModuleProvider="target">
+                    <rect key="frame" x="132" y="209.5" width="150" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="150" id="Fbe-tZ-QDj"/>
+                        <constraint firstAttribute="height" constant="44" id="cXp-Sg-OZF"/>
+                    </constraints>
+                    <state key="normal" title="Send">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="backgroundImageColor">
+                            <color key="value" red="1" green="0.60784313729999995" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="22"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="sendButtonTapped:" destination="-1" eventType="touchUpInside" id="LXG-gX-iKV"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="xl3-od-byd" firstAttribute="centerY" secondItem="idt-nJ-MNw" secondAttribute="centerY" id="0qB-AA-gU0"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="wyA-ow-aXV" secondAttribute="trailing" constant="20" id="2Do-Uz-jVB"/>
+                <constraint firstItem="idt-nJ-MNw" firstAttribute="top" secondItem="wyA-ow-aXV" secondAttribute="bottom" constant="20" id="Eqf-d0-mOg"/>
+                <constraint firstItem="idt-nJ-MNw" firstAttribute="leading" secondItem="xl3-od-byd" secondAttribute="trailing" constant="20" id="GGO-ct-hEU"/>
+                <constraint firstItem="wyA-ow-aXV" firstAttribute="leading" secondItem="xp0-7N-Jq1" secondAttribute="trailing" constant="20" id="IuA-bo-B2a"/>
+                <constraint firstItem="xp0-7N-Jq1" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="60" id="Kvr-bK-Xwp"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="idt-nJ-MNw" secondAttribute="trailing" constant="20" id="LOs-iV-puu"/>
+                <constraint firstItem="xl3-od-byd" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="LSS-rA-g8l"/>
+                <constraint firstItem="ABp-hc-iqi" firstAttribute="top" secondItem="idt-nJ-MNw" secondAttribute="bottom" constant="30" id="fks-Rf-v1W"/>
+                <constraint firstItem="ABp-hc-iqi" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="teQ-AM-fH7"/>
+                <constraint firstItem="xp0-7N-Jq1" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="uaG-5I-Ub8"/>
+                <constraint firstItem="wyA-ow-aXV" firstAttribute="centerY" secondItem="xp0-7N-Jq1" secondAttribute="centerY" id="zpC-jc-RdR"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="47.826086956521742" y="35.491071428571423"/>
+        </view>
+    </objects>
+</document>

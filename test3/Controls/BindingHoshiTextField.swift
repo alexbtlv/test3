@@ -8,10 +8,9 @@
 
 import TextFieldEffects
 
-
 class BindingHoshiTextField: HoshiTextField {
     
-    var textChanged :(String) -> () = { _ in }
+    var textChanged: (String) -> () = { _ in }
     
     func bind(callback :@escaping (String) -> ()) {
         
@@ -20,7 +19,6 @@ class BindingHoshiTextField: HoshiTextField {
     }
     
     @objc func textFieldDidChange(_ textField :UITextField) {
-        
         self.textChanged(textField.text!)
     }
 }

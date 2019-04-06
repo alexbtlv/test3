@@ -7,6 +7,7 @@ target 'test3' do
 
   # Pods for test3
   pod 'TextFieldEffects'
+  pod 'SearchTextField'
   pod 'MBProgressHUD'
   pod 'FontAwesome.swift'
 

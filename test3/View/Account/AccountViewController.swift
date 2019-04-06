@@ -28,8 +28,8 @@ class AccountViewController: UIViewController {
 
     private func setupUI() {
         title = "Account"
+        navigationController?.navigationBar.prefersLargeTitles = false
         tableView.rowHeight = 100
-        tableView.contentInsetAdjustmentBehavior = .never
         let cellNib = UINib(nibName: "TransactionTableViewCell", bundle: nil)
         tableView.register(cellNib, forCellReuseIdentifier: cellReuseIdentifier)
         
