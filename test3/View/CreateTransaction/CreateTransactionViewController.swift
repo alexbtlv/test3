@@ -58,6 +58,9 @@ class CreateTransactionViewController: UIViewController {
                         MBProgressHUD.hide(for: self.view, animated: true)
                         switch result {
                         case .success(let transactionVM):
+                            if let accountVC = self.previousViewController as? AccountViewController {
+                                accountVC.fetchUser()
+                            }
                             self.showAlert(withMessage: "Transaction succesful!\n \(self.userVM.name) -->\(transactionVM.amountText) --> \(transactionVM.recipient)", success: true)
                         case .failure(let errorMessage):
                             self.showAlert(withMessage: errorMessage)

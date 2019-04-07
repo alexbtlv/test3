@@ -52,7 +52,7 @@ class AccountViewController: UIViewController {
         tableView.reloadData()
     }
     
-    @objc private func fetchUser() {
+    @objc func fetchUser() {
         refreshControl.beginRefreshing()
         
         DispatchQueue.global().async { [weak self] in

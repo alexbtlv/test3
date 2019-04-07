@@ -24,6 +24,7 @@ class TransactionTableViewCell: UITableViewCell {
     private func updateUI() {
 //        guard let transactionVM = transactionVM else { return }
         dateLabel.text = transactionVM.dateText
+        transactionAmountLabel.textColor = transactionVM.amountColor
         transactionAmountLabel.text = transactionVM.amountText
         recipientLabel.text = transactionVM.recipient
         resultingBalanceLabel.text = transactionVM.resiltingBalance
