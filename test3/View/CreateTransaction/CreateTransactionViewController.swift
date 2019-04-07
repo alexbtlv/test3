@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 class CreateTransactionViewController: UIViewController {
     
@@ -15,11 +16,7 @@ class CreateTransactionViewController: UIViewController {
     
     private let transactionManager = TransactionManager()
     private let newTransaction = PotentialTransactionViewModel()
-    var userVM: UserViewModel! {
-        didSet {
-            newTransaction.senderBalance = userVM.balance
-        }
-    }
+    var userVM: UserViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,9 +25,19 @@ class CreateTransactionViewController: UIViewController {
 
     private func setupUI() {
         title = "Create Transaction"
-        recipientTextField.delegate = self
+        newTransaction.senderBalance = userVM.balance
+        
         recipientTextField.bind { [unowned self] in
             self.newTransaction.recipient.value = $0
+            if !$0.isEmpty {
+                self.getUsernamesForAutocomplete(query: $0)
+            }
+        }
+        
+        recipientTextField.itemSelectionHandler = {  [unowned self] filteredResults, itemPosition in
+            let item = filteredResults[itemPosition]
+            self.recipientTextField.text = item.title
+            self.newTransaction.recipient.value = item.title
         }
         
         amountTextField.bind { [unowned self] in
@@ -41,24 +48,32 @@ class CreateTransactionViewController: UIViewController {
     
     @IBAction func sendButtonTapped(_ sender: Any) {
         if newTransaction.isValid {
-            
+            MBProgressHUD.showAdded(to: view, animated: true)
+            DispatchQueue.global().async { [weak self] in
+                guard let self = self else { return }
+                
+                self.transactionManager.sendTransaction(recipient: self.newTransaction.recipient.value!, amount: self.newTransaction.amount.value!, completion: { result in
+                    
+                    DispatchQueue.main.async {
+                        MBProgressHUD.hide(for: self.view, animated: true)
+                        switch result {
+                        case .success(let transactionVM):
+                            self.showAlert(withMessage: "Transaction succesful!\n \(self.userVM.name) -->\(transactionVM.amount) PW--> \(transactionVM.recipient)", success: true)
+                        case .failure(let errorMessage):
+                            self.showAlert(withMessage: errorMessage)
+                        }
+                    }
+                })
+            }
         } else {
             showAlert(withMessage: newTransaction.validationMessage)
         }
     }
-}
-
-
-extension CreateTransactionViewController: UITextFieldDelegate {
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        guard let text = textField.text, !text.isEmpty else {
-            return true
-        }
-        
+    
+    private func getUsernamesForAutocomplete(query: String) {
         DispatchQueue.global().async { [weak self] in
             guard let self = self else { return }
-            
-            self.transactionManager.getUsernames(query: text, completion: { result in
+            self.transactionManager.getUsernames(query: query, completion: { result in
                 DispatchQueue.main.async {
                     switch result {
                     case .success(let names):
@@ -69,7 +84,5 @@ extension CreateTransactionViewController: UITextFieldDelegate {
                 }
             })
         }
-        
-        return true
     }
 }

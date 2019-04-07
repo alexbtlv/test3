@@ -8,11 +8,19 @@
 
 import Foundation
 
-struct TransactionToken: Codable {
+struct TransactionsToken: Codable {
     let transactions: [Transaction?]
     
     enum CodingKeys: String, CodingKey {
         case transactions = "trans_token"
+    }
+}
+
+struct TransactionToken: Codable {
+    let transaction: Transaction
+    
+    enum CodingKeys: String, CodingKey {
+        case transaction = "trans_token"
     }
 }
 

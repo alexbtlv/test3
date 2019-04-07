@@ -11,6 +11,14 @@ import Foundation
 class TransactionViewModel {
     private let transaction: Transaction
     
+    var recipient: String {
+        return transaction.username
+    }
+    
+    var amount: String {
+        return "\(transaction.amount)"
+    }
+    
     init?(_ transaction: Transaction?) {
         guard let transaction = transaction  else { return nil }
         self.transaction = transaction

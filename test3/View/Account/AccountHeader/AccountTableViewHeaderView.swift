@@ -40,6 +40,7 @@ class AccountTableViewHeaderView: UIView {
     }
     
     fileprivate func updateUI() {
+        sendMoneyBuuton.isHidden = userVM == nil
         usernameLabel.text = userVM?.greetingText
         balanceLabel.text = userVM?.balanceText
         sendMoneyBuuton.titleLabel?.font = UIFont.fontAwesome(ofSize: 25, style: .solid)
@@ -48,11 +49,10 @@ class AccountTableViewHeaderView: UIView {
     
     @IBAction func logOutButtonTapped(_ sender: Any) {
         do {
-            try userVM?.logOut()
+            try UserViewModel.logOut()
         } catch {
             print(error)
         }
-        
     }
     
     @IBAction func sendMoneyButtonTapped(_ sender: Any) {

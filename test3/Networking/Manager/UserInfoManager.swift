@@ -78,7 +78,7 @@ struct UserInfoManager {
                         }
                         
                         do {
-                            let transToken = try JSONDecoder().decode(TransactionToken.self, from: responseData)
+                            let transToken = try JSONDecoder().decode(TransactionsToken.self, from: responseData)
                             let transactionVMs = transToken.transactions.compactMap { TransactionViewModel($0) }
                             completion(.success(transactionVMs))
                         } catch {

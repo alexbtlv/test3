@@ -36,5 +36,9 @@ class PotentialTransactionViewModel: Validatable {
         if let amount = amount.value, amount > senderBalance {
             brokenRules.append(BrokenRule(propertyName: "amount", message: "Insufficient funds. Please top up your balance."))
         }
+        
+        if let amount = amount.value, amount == 0 {
+            brokenRules.append(BrokenRule(propertyName: "amount", message: "Please enter valid amount."))
+        }
     }
 }
