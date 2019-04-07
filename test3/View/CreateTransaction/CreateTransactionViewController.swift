@@ -16,7 +16,9 @@ class CreateTransactionViewController: UIViewController {
     
     private let transactionManager = TransactionManager()
     private let newTransaction = PotentialTransactionViewModel()
+    
     var userVM: UserViewModel!
+    var transactionCopy: TransactionViewModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +28,13 @@ class CreateTransactionViewController: UIViewController {
     private func setupUI() {
         title = "Create Transaction"
         newTransaction.senderBalance = userVM.balance
+        
+        if let transactionCopy = transactionCopy {
+            recipientTextField.text = transactionCopy.recipient
+            amountTextField.text = "\(abs(transactionCopy.amount))"
+            newTransaction.amount.value = abs(transactionCopy.amount)
+            newTransaction.recipient.value = transactionCopy.recipient
+        }
         
         recipientTextField.bind { [unowned self] in
             self.newTransaction.recipient.value = $0
@@ -61,7 +70,7 @@ class CreateTransactionViewController: UIViewController {
                             if let accountVC = self.previousViewController as? AccountViewController {
                                 accountVC.fetchUser()
                             }
-                            self.showAlert(withMessage: "Transaction succesful!\n \(self.userVM.name) -->\(transactionVM.amountText) --> \(transactionVM.recipient)", success: true)
+                            self.showAlert(withMessage: "Transaction succesful!\n \(self.userVM.name) -->\(transactionVM.amountText) \(transactionVM.recipient)", success: true)
                         case .failure(let errorMessage):
                             self.showAlert(withMessage: errorMessage)
                         }

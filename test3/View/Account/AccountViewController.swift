@@ -107,6 +107,14 @@ extension AccountViewController: UITableViewDataSource {
 
 extension AccountViewController: UITableViewDelegate {
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let createTransactionVC = CreateTransactionViewController(nibName: "CreateTransactionViewController", bundle: nil)
+        createTransactionVC.userVM = userVM
+        createTransactionVC.transactionCopy = tractionsVM.transactionVM(forRowAt: indexPath)
+        navigationController?.pushViewController(createTransactionVC, animated: true)
+        tableView.deselectRow(at: indexPath, animated: false)
+    }
+    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if section == 0 {
             let header = AccountTableViewHeaderView()
