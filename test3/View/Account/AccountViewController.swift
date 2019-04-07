@@ -14,11 +14,11 @@ class AccountViewController: UIViewController {
     
     private let refreshControl = UIRefreshControl()
     private let cellReuseIdentifier = "TransactionTableViewCell"
-    private let tableViewHeaderHeight: CGFloat = 200
+    private let tableViewHeaderHeight: CGFloat = 220
     private let userInfoManager = UserInfoManager()
     
-    private var userVM: UserViewModel?
-    private var tractionsVM = TransactionsViewModel()
+    var userVM: UserViewModel?
+    var tractionsVM = TransactionsViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -8,11 +8,20 @@
 
 import UIKit
 
-class TransactionViewModel {
+class TransactionViewModel: Equatable {
+    
     private let transaction: Transaction
     
     var recipient: String {
         return transaction.username
+    }
+    
+    var amount: Int {
+        return transaction.amount
+    }
+    
+    var date: String {
+        return transaction.date
     }
     
     var amountText: String {
@@ -41,5 +50,9 @@ class TransactionViewModel {
     init?(_ transaction: Transaction?) {
         guard let transaction = transaction  else { return nil }
         self.transaction = transaction
+    }
+    
+    static func == (lhs: TransactionViewModel, rhs: TransactionViewModel) -> Bool {
+        return lhs.transaction.id == rhs.transaction.id
     }
 }

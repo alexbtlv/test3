@@ -8,6 +8,14 @@
 
 import Foundation
 
+
+enum TransactionSortScope: String {
+    case name = "name"
+    case date = "date"
+    case amount = "amount"
+}
+
+
 class TransactionsViewModel {
     
     private var transactionVMs = [TransactionViewModel]()
@@ -36,5 +44,18 @@ class TransactionsViewModel {
     
     func transactionVM(forRowAt indexPath: IndexPath) -> TransactionViewModel {
         return transactionVMs[indexPath.row]
+    }
+    
+    func sortBy(_ scope: TransactionSortScope) {
+        var sorted = [TransactionViewModel]()
+        switch scope {
+        case .name:
+            sorted = transactionVMs.sorted { $0.recipient < $1.recipient }
+        case .amount:
+            sorted = transactionVMs.sorted { $0.amount < $1.amount }
+        case .date:
+            sorted = transactionVMs.sorted { $0.date < $1.date }
+        }
+        transactionVMs = transactionVMs == sorted ? transactionVMs.reversed() : sorted
     }
 }
