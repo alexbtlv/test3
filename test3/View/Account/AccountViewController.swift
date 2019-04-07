@@ -97,15 +97,12 @@ extension AccountViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as? TransactionTableViewCell else {
             preconditionFailure("Plese make sure to register Nib for Cell Reuse Identifier.")
         }
+        cell.transactionVM = tractionsVM.transactionVM(forRowAt: indexPath)
         return cell
     }
-    
-//    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-//        <#code#>
-//    }
 }
 
 extension AccountViewController: UITableViewDelegate {

@@ -15,8 +15,16 @@ class TransactionViewModel {
         return transaction.username
     }
     
-    var amount: String {
-        return "\(transaction.amount)"
+    var amountText: String {
+        return "\(transaction.amount) PW".replacingOccurrences(of: "-", with: "")
+    }
+    
+    var dateText: String {
+        return transaction.date
+    }
+    
+    var resiltingBalance: String {
+        return "\(transaction.balance) PW"
     }
     
     init?(_ transaction: Transaction?) {
