@@ -17,6 +17,27 @@ class NewUserViewModel: Validatable {
     var name = Dynamic<String>("")
     var email = Dynamic<String>("")
     
+    var hasValidName: Bool {
+        if let n = name.value, n.isEmpty {
+            return false
+        }
+        return true
+    }
+    
+    var hasValidEmail: Bool {
+        if let e = email.value, e.isValidEmail {
+            return true
+        }
+        return false
+    }
+    
+    var passwordsAreMatching: Bool {
+        if let newPass = newPassword.value, let confirmPass = confirmPassword.value, newPass == confirmPass && !newPass.isEmpty {
+            return true
+        }
+        return false
+    }
+    
     var validationMessage: String {
         get {
             var message = ""
@@ -37,15 +58,15 @@ class NewUserViewModel: Validatable {
     }
     
     private func validate() {
-        if let n = name.value, n.isEmpty {
+        if !hasValidName {
             self.brokenRules.append(BrokenRule(propertyName: "name", message: "Name can not be empty"))
         }
         
-        if let e = email.value, !e.isValidEmail {
+        if  !hasValidEmail {
             self.brokenRules.append(BrokenRule(propertyName: "email", message: "Please enter valid email"))
         }
         
-        if let newPass = newPassword.value, let confirmPass = confirmPassword.value, newPass != confirmPass || newPass.isEmpty {
+        if !passwordsAreMatching {
             self.brokenRules.append(BrokenRule(propertyName: "confirmPassword", message: "Passwords are not matching"))
         }
     }

@@ -6,8 +6,17 @@
 //  Copyright © 2019 Alexander Batalov. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 struct Constants {
     static let needsToAuthenticate = "needsToAuthenticate"
+    static var pwRedColor: UIColor {
+        return UIColor(red: 0.7765, green: 0, blue: 0, alpha: 1)
+    }
+    static var pwGreenColor: UIColor {
+        return UIColor(red: 0, green: 0.698, blue: 0.0078, alpha: 1)
+    }
+    static var pwOrangeColor: UIColor {
+        return UIColor(red: 255/255, green: 155/255, blue: 0/255, alpha: 1)
+    }
 }

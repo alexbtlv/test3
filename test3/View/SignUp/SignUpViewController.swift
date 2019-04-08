@@ -32,18 +32,46 @@ class SignUpViewController: UIViewController {
     private func setupUI() {
         nameTextField.bind { [unowned self] in
             self.newUser.name.value = $0
+            if self.newUser.hasValidName {
+                self.nameTextField.borderActiveColor = Constants.pwGreenColor
+                self.nameTextField.borderInactiveColor = Constants.pwGreenColor
+            } else {
+                self.nameTextField.borderActiveColor = Constants.pwOrangeColor
+                self.nameTextField.borderInactiveColor = Constants.pwOrangeColor
+            }
         }
         
         emailTextField.bind { [unowned self] in
             self.newUser.email.value = $0
+            if self.newUser.hasValidEmail {
+                self.emailTextField.borderActiveColor = Constants.pwGreenColor
+                self.emailTextField.borderInactiveColor = Constants.pwGreenColor
+            } else {
+                self.emailTextField.borderActiveColor = Constants.pwOrangeColor
+                self.emailTextField.borderInactiveColor = Constants.pwOrangeColor
+            }
         }
         
         passwordTextField.bind { [unowned self] in
             self.newUser.newPassword.value = $0
+            if !$0.isEmpty {
+                self.passwordTextField.borderActiveColor = Constants.pwGreenColor
+                self.passwordTextField.borderInactiveColor = Constants.pwGreenColor
+            } else {
+                self.passwordTextField.borderActiveColor = Constants.pwOrangeColor
+                self.passwordTextField.borderInactiveColor = Constants.pwOrangeColor
+            }
         }
         
         repeatPasswordTextField.bind { [unowned self] in
             self.newUser.confirmPassword.value = $0
+            if self.newUser.passwordsAreMatching {
+                self.repeatPasswordTextField.borderActiveColor = Constants.pwGreenColor
+                self.repeatPasswordTextField.borderInactiveColor = Constants.pwGreenColor
+            } else {
+                self.repeatPasswordTextField.borderActiveColor = Constants.pwOrangeColor
+                self.repeatPasswordTextField.borderInactiveColor = Constants.pwOrangeColor
+            }
         }
         
         // Register For Keyboard Notifications

@@ -41,9 +41,9 @@ class TransactionViewModel: Equatable {
     
     var amountColor: UIColor {
         if transaction.amount < 0 {
-            return UIColor(red: 0.7765, green: 0, blue: 0, alpha: 1.0)
+            return Constants.pwRedColor
         } else {
-            return UIColor(red: 0, green: 0.698, blue: 0.0078, alpha: 1.0)
+            return Constants.pwGreenColor
         }
     }
     
