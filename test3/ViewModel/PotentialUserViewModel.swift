@@ -21,6 +21,18 @@ class PotentialUserViewModel: Validatable {
             return brokenRules.count == 0 ? true : false
         }
     }
+    var hasValidEmail: Bool {
+        if let e = email.value, e.isValidEmail {
+            return true
+        }
+        return false
+    }
+    var hasPassword: Bool {
+        if let pass = password.value, !pass.isEmpty {
+            return true
+        }
+        return false
+    }
     var validationMessage: String {
         get {
             var message = ""
@@ -33,11 +45,11 @@ class PotentialUserViewModel: Validatable {
     }
     
     private func validate() {
-        if let e = email.value, !e.isValidEmail {
+        if !hasValidEmail {
             self.brokenRules.append(BrokenRule(propertyName: "email", message: "Please enter valid email"))
         }
         
-        if let pass = password.value, pass.isEmpty {
+        if !hasPassword {
             self.brokenRules.append(BrokenRule(propertyName: "password", message: "Password can not be empty"))
         }
     }

@@ -30,10 +30,24 @@ class LogInViewController: UIViewController {
     private func setupUI() {
         emailTextField.bind { [unowned self] in
             self.user.email.value = $0
+            if self.user.hasValidEmail {
+                self.emailTextField.borderActiveColor = Constants.pwGreenColor
+                self.emailTextField.borderInactiveColor = Constants.pwGreenColor
+            } else {
+                self.emailTextField.borderActiveColor = Constants.pwOrangeColor
+                self.emailTextField.borderInactiveColor = Constants.pwOrangeColor
+            }
         }
         
         passwordTextField.bind { [unowned self] in
             self.user.password.value = $0
+            if self.user.hasPassword {
+                self.passwordTextField.borderActiveColor = Constants.pwGreenColor
+                self.passwordTextField.borderInactiveColor = Constants.pwGreenColor
+            } else {
+                self.passwordTextField.borderActiveColor = Constants.pwOrangeColor
+                self.passwordTextField.borderInactiveColor = Constants.pwOrangeColor
+            }
         }
         
         // Register For Keyboard Notifications
