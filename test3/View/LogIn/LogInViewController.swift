@@ -13,13 +13,32 @@ class LogInViewController: UIViewController {
 
     @IBOutlet private weak var emailTextField: BindingHoshiTextField!
     @IBOutlet private weak var passwordTextField: BindingHoshiTextField!
+    @IBOutlet private weak var scrollView: UIScrollView!
     
     private var user = PotentialUserViewModel()
     private let sessionManager = UserSessionManager()
     
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+    }
+    
+    private func setupUI() {
+        emailTextField.bind { [unowned self] in
+            self.user.email.value = $0
+        }
+        
+        passwordTextField.bind { [unowned self] in
+            self.user.password.value = $0
+        }
+        
+        // Register For Keyboard Notifications
+        NotificationCenter.default.addObserver(self, selector: #selector(onKeyboardAppear(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(onKeyboardDisappear(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
 
     @IBAction private func logInButtonTapped(_ sender: Any) {
@@ -45,13 +64,17 @@ class LogInViewController: UIViewController {
         }
     }
     
-    private func setupUI() {
-        emailTextField.bind { [unowned self] in
-            self.user.email.value = $0
-        }
-        
-        passwordTextField.bind { [unowned self] in
-            self.user.password.value = $0
-        }
+    @objc private func onKeyboardAppear(_ notification: NSNotification) {
+        let userInfo: NSDictionary = notification.userInfo! as NSDictionary
+        let keyboardInfo = userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue
+        let keyboardSize = keyboardInfo.cgRectValue.size
+        let contentInsets = UIEdgeInsets(top: 0, left: 0, bottom: keyboardSize.height, right: 0)
+        scrollView.contentInset = contentInsets
+        scrollView.scrollIndicatorInsets = contentInsets
+    }
+    
+    @objc private func onKeyboardDisappear(_ notification: NSNotification) {
+        scrollView.contentInset = .zero
+        scrollView.scrollIndicatorInsets = .zero
     }
 }
