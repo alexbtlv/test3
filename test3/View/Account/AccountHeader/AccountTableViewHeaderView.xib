@@ -95,99 +95,96 @@
                         <action selector="logOutButtonTapped:" destination="-1" eventType="touchUpInside" id="nWF-SY-S8l"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="sort by:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GFu-tx-MFP">
-                    <rect key="frame" x="20" y="203" width="59" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VxB-Bd-zbU" customClass="ABRoundedButton" customModule="test3" customModuleProvider="target">
-                    <rect key="frame" x="97" y="198.5" width="80" height="30"/>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="lcC-ja-gxd">
+                    <rect key="frame" x="20" y="198" width="372" height="30"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="sort by:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GFu-tx-MFP">
+                            <rect key="frame" x="0.0" y="0.0" width="85.5" height="30"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VxB-Bd-zbU" customClass="ABRoundedButton" customModule="test3" customModuleProvider="target">
+                            <rect key="frame" x="95.5" y="0.0" width="85.5" height="30"/>
+                            <state key="normal" title="date">
+                                <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="color" keyPath="backgroundImageColor">
+                                    <color key="value" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                    <color key="value" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                    <real key="value" value="1"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="sortByButtonClicked:" destination="-1" eventType="touchUpInside" id="jeF-p8-8ls"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lfy-a1-jkm" customClass="ABRoundedButton" customModule="test3" customModuleProvider="target">
+                            <rect key="frame" x="191" y="0.0" width="85.5" height="30"/>
+                            <state key="normal" title="name">
+                                <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="color" keyPath="backgroundImageColor">
+                                    <color key="value" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                    <color key="value" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                    <real key="value" value="1"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="sortByButtonClicked:" destination="-1" eventType="touchUpInside" id="8rK-i3-Wuu"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ID8-at-fOF" customClass="ABRoundedButton" customModule="test3" customModuleProvider="target">
+                            <rect key="frame" x="286.5" y="0.0" width="85.5" height="30"/>
+                            <state key="normal" title="amount">
+                                <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="color" keyPath="backgroundImageColor">
+                                    <color key="value" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                    <color key="value" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                    <real key="value" value="1"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="sortByButtonClicked:" destination="-1" eventType="touchUpInside" id="xD1-WR-7SD"/>
+                            </connections>
+                        </button>
+                    </subviews>
                     <constraints>
-                        <constraint firstAttribute="height" constant="30" id="0fo-fj-bk1"/>
-                        <constraint firstAttribute="width" constant="80" id="sf8-8C-S50"/>
+                        <constraint firstItem="ID8-at-fOF" firstAttribute="width" secondItem="VxB-Bd-zbU" secondAttribute="width" id="3mu-4w-6vh"/>
+                        <constraint firstAttribute="height" constant="30" id="HM6-eK-GgJ"/>
+                        <constraint firstItem="lfy-a1-jkm" firstAttribute="width" secondItem="VxB-Bd-zbU" secondAttribute="width" id="qyR-Hi-0T2"/>
                     </constraints>
-                    <state key="normal" title="date">
-                        <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </state>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="color" keyPath="backgroundImageColor">
-                            <color key="value" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                            <color key="value" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                            <real key="value" value="1"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
-                    <connections>
-                        <action selector="sortByButtonClicked:" destination="-1" eventType="touchUpInside" id="jeF-p8-8ls"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lfy-a1-jkm" customClass="ABRoundedButton" customModule="test3" customModuleProvider="target">
-                    <rect key="frame" x="193" y="198.5" width="80" height="30"/>
-                    <state key="normal" title="name">
-                        <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </state>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="color" keyPath="backgroundImageColor">
-                            <color key="value" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                            <color key="value" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                            <real key="value" value="1"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
-                    <connections>
-                        <action selector="sortByButtonClicked:" destination="-1" eventType="touchUpInside" id="8rK-i3-Wuu"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ID8-at-fOF" customClass="ABRoundedButton" customModule="test3" customModuleProvider="target">
-                    <rect key="frame" x="289" y="198.5" width="80" height="30"/>
-                    <state key="normal" title="amount">
-                        <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </state>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="color" keyPath="backgroundImageColor">
-                            <color key="value" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                            <color key="value" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                            <real key="value" value="1"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
-                    <connections>
-                        <action selector="sortByButtonClicked:" destination="-1" eventType="touchUpInside" id="xD1-WR-7SD"/>
-                    </connections>
-                </button>
+                </stackView>
             </subviews>
             <constraints>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="03t-bX-vUk" secondAttribute="trailing" constant="20" id="4eF-EG-JJW"/>
-                <constraint firstItem="lfy-a1-jkm" firstAttribute="width" secondItem="VxB-Bd-zbU" secondAttribute="width" id="5SR-sQ-Vyx"/>
                 <constraint firstItem="KrR-Sm-iTi" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="40" id="9TD-SR-2sS"/>
-                <constraint firstItem="ID8-at-fOF" firstAttribute="height" secondItem="lfy-a1-jkm" secondAttribute="height" id="Cfm-dB-7RY"/>
-                <constraint firstItem="VxB-Bd-zbU" firstAttribute="leading" secondItem="GFu-tx-MFP" secondAttribute="trailing" constant="18" id="J4X-u1-KCr"/>
-                <constraint firstItem="GFu-tx-MFP" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="Jfd-ft-96u"/>
-                <constraint firstItem="VxB-Bd-zbU" firstAttribute="centerY" secondItem="GFu-tx-MFP" secondAttribute="centerY" id="MgJ-Js-zGI"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="lcC-ja-gxd" secondAttribute="trailing" constant="20" id="Eus-Rt-fip"/>
+                <constraint firstAttribute="bottom" secondItem="lcC-ja-gxd" secondAttribute="bottom" constant="20" id="LrK-P3-Fn0"/>
                 <constraint firstItem="7Ek-8T-DK1" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="QD4-hE-atD"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="KrR-Sm-iTi" secondAttribute="trailing" constant="20" id="QJd-Zb-UH8"/>
                 <constraint firstItem="OYs-cx-cCB" firstAttribute="centerY" secondItem="7Ek-8T-DK1" secondAttribute="centerY" id="Rvs-Cb-rdF"/>
-                <constraint firstItem="lfy-a1-jkm" firstAttribute="height" secondItem="VxB-Bd-zbU" secondAttribute="height" id="TN8-nW-j7A"/>
+                <constraint firstItem="lcC-ja-gxd" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="U80-1v-Cud"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="OYs-cx-cCB" secondAttribute="trailing" constant="20" id="bO0-AQ-N8X"/>
-                <constraint firstItem="ID8-at-fOF" firstAttribute="leading" secondItem="lfy-a1-jkm" secondAttribute="trailing" constant="16" id="dVg-eN-SvI"/>
                 <constraint firstItem="KrR-Sm-iTi" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="dka-yw-yxB"/>
-                <constraint firstItem="ID8-at-fOF" firstAttribute="width" secondItem="lfy-a1-jkm" secondAttribute="width" id="hLE-fx-p6X"/>
-                <constraint firstItem="ID8-at-fOF" firstAttribute="centerY" secondItem="lfy-a1-jkm" secondAttribute="centerY" id="nEZ-JV-L28"/>
                 <constraint firstItem="03t-bX-vUk" firstAttribute="centerY" secondItem="KrR-Sm-iTi" secondAttribute="centerY" id="pAA-4y-RVM"/>
                 <constraint firstItem="7Ek-8T-DK1" firstAttribute="top" secondItem="KrR-Sm-iTi" secondAttribute="bottom" constant="34.5" id="paf-ZR-MhB"/>
-                <constraint firstItem="lfy-a1-jkm" firstAttribute="centerY" secondItem="VxB-Bd-zbU" secondAttribute="centerY" id="pol-nz-4U4"/>
-                <constraint firstItem="lfy-a1-jkm" firstAttribute="leading" secondItem="VxB-Bd-zbU" secondAttribute="trailing" constant="16" id="shS-pP-4XO"/>
-                <constraint firstAttribute="bottom" secondItem="GFu-tx-MFP" secondAttribute="bottom" constant="24" id="vGC-bl-E3t"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
