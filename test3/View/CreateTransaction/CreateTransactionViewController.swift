@@ -16,7 +16,7 @@ class CreateTransactionViewController: UIViewController {
     
     private let transactionManager = TransactionManager()
     private let newTransaction = PotentialTransactionViewModel()
-    
+
     var userVM: UserViewModel!
     var transactionCopy: TransactionViewModel?
     
@@ -70,7 +70,12 @@ class CreateTransactionViewController: UIViewController {
                             if let accountVC = self.previousViewController as? AccountViewController {
                                 accountVC.fetchUser()
                             }
-                            self.showAlert(withMessage: "Transaction succesful!\n \(self.userVM.name) -->\(transactionVM.amountText) \(transactionVM.recipient)", success: true)
+                            let alertVC = UIAlertController(title: "Success", message: "Transaction succesful!\n \(self.userVM.name) -->\(transactionVM.amountText) \(transactionVM.recipient)", preferredStyle: .alert)
+                            let okAction = UIAlertAction(title: "Ok", style: .cancel, handler: {_ in
+                                self.navigationController?.popViewController(animated: true)
+                            })
+                            alertVC.addAction(okAction)
+                            self.present(alertVC, animated: true, completion: nil)
                         case .failure(let errorMessage):
                             self.showAlert(withMessage: errorMessage)
                         }

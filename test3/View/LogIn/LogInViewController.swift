@@ -22,7 +22,7 @@ class LogInViewController: UIViewController {
         setupUI()
     }
 
-    @IBAction func logInButtonTapped(_ sender: Any) {
+    @IBAction private func logInButtonTapped(_ sender: Any) {
         if user.isValid {
             MBProgressHUD.showAdded(to: view, animated: true)
             DispatchQueue.global().async { [weak self] in

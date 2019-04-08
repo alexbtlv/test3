@@ -50,7 +50,14 @@ struct TransactionManager {
                             completion(.failure(NetworkResponse.unableToDecode.rawValue))
                         }
                     case .failure(let errorMessage):
-                        completion(.failure(errorMessage))
+                        if errorMessage == NetworkResponse.authenticationError.rawValue {
+                            // user performed request while not being authetnicated. Force log out.
+                            DispatchQueue.main.async {
+                                try? UserViewModel.logOut()
+                            }
+                        } else {
+                            completion(.failure(errorMessage))
+                        }
                     }
                 }
             }
@@ -88,7 +95,18 @@ struct TransactionManager {
                             completion(.failure(NetworkResponse.unableToDecode.rawValue))
                         }
                     case .failure(let errorMessage):
-                        completion(.failure(errorMessage))
+                        if errorMessage == NetworkResponse.authenticationError.rawValue {
+                            // user performed request while not being authetnicated. Force log out.
+                            DispatchQueue.main.async {
+                                do {
+                                    try UserViewModel.logOut()
+                                } catch {
+                                    completion(.failure(errorMessage + "\n" + error.localizedDescription))
+                                }
+                            }
+                        } else {
+                            completion(.failure(errorMessage))
+                        }
                     }
                 }
             }

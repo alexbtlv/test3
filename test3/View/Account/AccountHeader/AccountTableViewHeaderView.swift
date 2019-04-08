@@ -11,10 +11,10 @@ import FontAwesome_swift
 
 class AccountTableViewHeaderView: UIView {
 
-    @IBOutlet var contentView: UIView!
-    @IBOutlet weak var usernameLabel: UILabel!
-    @IBOutlet weak var balanceLabel: UILabel!
-    @IBOutlet weak var sendMoneyBuuton: ABRoundedButton!
+    @IBOutlet private weak var contentView: UIView!
+    @IBOutlet private weak var usernameLabel: UILabel!
+    @IBOutlet private weak var balanceLabel: UILabel!
+    @IBOutlet private weak var sendMoneyBuuton: ABRoundedButton!
     
     var userVM: UserViewModel? {
         didSet {

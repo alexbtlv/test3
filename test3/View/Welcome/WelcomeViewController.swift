@@ -19,12 +19,12 @@ class WelcomeViewController: UIViewController {
         title = "Hey!"
     }
     
-    @IBAction func logInButtonTapped(_ sender: Any) {
+    @IBAction private func logInButtonTapped(_ sender: Any) {
         let loginVC = LogInViewController(nibName: "LogInViewController", bundle: nil)
         navigationController?.pushViewController(loginVC, animated: true)
     }
     
-    @IBAction func signUpButtonTapped(_ sender: Any) {
+    @IBAction private func signUpButtonTapped(_ sender: Any) {
         let signUPVC = SignUpViewController(nibName: "SignUpViewController", bundle: nil)
         navigationController?.pushViewController(signUPVC, animated: true)
     }

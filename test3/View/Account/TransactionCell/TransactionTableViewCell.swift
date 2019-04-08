@@ -10,10 +10,10 @@ import UIKit
 
 class TransactionTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var transactionAmountLabel: UILabel!
-    @IBOutlet weak var recipientLabel: UILabel!
-    @IBOutlet weak var resultingBalanceLabel: UILabel!
+    @IBOutlet private weak var dateLabel: UILabel!
+    @IBOutlet private weak var transactionAmountLabel: UILabel!
+    @IBOutlet private weak var recipientLabel: UILabel!
+    @IBOutlet private weak var resultingBalanceLabel: UILabel!
     
     var transactionVM: TransactionViewModel! {
         didSet {
@@ -22,7 +22,6 @@ class TransactionTableViewCell: UITableViewCell {
     }
     
     private func updateUI() {
-//        guard let transactionVM = transactionVM else { return }
         dateLabel.text = transactionVM.dateText
         transactionAmountLabel.textColor = transactionVM.amountColor
         transactionAmountLabel.text = transactionVM.amountText
