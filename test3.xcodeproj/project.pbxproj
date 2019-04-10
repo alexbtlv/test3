@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5AF469D1CB0FE56049F4D53E /* Pods_test3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 646A2E23D226E8CC3E2B1C1F /* Pods_test3.framework */; };
+		851F340B225DE77B0062F33F /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851F340A225DE77B0062F33F /* Token.swift */; };
 		852157B2225841DB00488F5B /* PotentialUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852157B1225841DB00488F5B /* PotentialUserViewModel.swift */; };
 		852157B6225860F800488F5B /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852157B5225860F800488F5B /* Transaction.swift */; };
 		852157B8225861FB00488F5B /* TransactionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852157B7225861FB00488F5B /* TransactionViewModel.swift */; };
@@ -54,6 +55,7 @@
 /* Begin PBXFileReference section */
 		17D1F51EFE663D3A11948226 /* Pods-test3.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-test3.release.xcconfig"; path = "Target Support Files/Pods-test3/Pods-test3.release.xcconfig"; sourceTree = "<group>"; };
 		646A2E23D226E8CC3E2B1C1F /* Pods_test3.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_test3.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		851F340A225DE77B0062F33F /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		852157B1225841DB00488F5B /* PotentialUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PotentialUserViewModel.swift; sourceTree = "<group>"; };
 		852157B5225860F800488F5B /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		852157B7225861FB00488F5B /* TransactionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionViewModel.swift; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 				8549A644225732C800BEF7A6 /* User.swift */,
 				852157B5225860F800488F5B /* Transaction.swift */,
 				852157C62258D16900488F5B /* Recipient.swift */,
+				851F340A225DE77B0062F33F /* Token.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -492,6 +495,7 @@
 				8549A6042255F1C600BEF7A6 /* MainNavigationViewController.swift in Sources */,
 				8549A617225703D900BEF7A6 /* NewUserViewModel.swift in Sources */,
 				8549A63A225721E600BEF7A6 /* NetworkingManager.swift in Sources */,
+				851F340B225DE77B0062F33F /* Token.swift in Sources */,
 				8549A6022255EF7F00BEF7A6 /* ABRoundedButton.swift in Sources */,
 				8549A63B225721E600BEF7A6 /* TestEndPoint.swift in Sources */,
 				8549A6082256F3CE00BEF7A6 /* LogInViewController.swift in Sources */,

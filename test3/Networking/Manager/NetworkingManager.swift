@@ -28,7 +28,7 @@ class NetworkingManager {
         performRequest(route: PWTestEndPoint.getTransactions, completion: completion)
     }
     
-    static func signInUser(email: String, password: String, completion: @escaping (Result<String, Error>) -> Void) {
+    static func signInUser(email: String, password: String, completion: @escaping (Result<Token, Error>) -> Void) {
         performRequest(route: PWTestEndPoint.login(email: email, password: password), completion: completion)
     }
     
