@@ -30,7 +30,6 @@ struct Constants {
         case json = "application/json"
     }
     
-    
     static let needsToAuthenticate = "needsToAuthenticate"
     
     static var pwRedColor: UIColor {

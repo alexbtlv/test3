@@ -18,7 +18,6 @@ class SignUpViewController: UIViewController {
     @IBOutlet private weak var scrollView: UIScrollView!
     
     private let newUser = NewUserViewModel()
-    private let registrationService = UserRegistrationManager()
     
     deinit {
         NotificationCenter.default.removeObserver(self)
@@ -79,31 +78,31 @@ class SignUpViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(onKeyboardDisappear(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
-    @IBAction private func signUpButtonTapped(_ sender: Any) {
-        if newUser.isValid {
-            MBProgressHUD.showAdded(to: view, animated: true)
-            
-            DispatchQueue.global().async { [weak self] in
-                guard let self = self else { return }
-                
-                self.registrationService.registerUser(user: self.newUser, completion: { result in
-                    DispatchQueue.main.async {
-                        
-                        MBProgressHUD.hide(for: self.view, animated: true)
-                        switch result {
-                        case .failure(let errorMessage):
-                                self.showAlert(withMessage: errorMessage)
-                        case .success:
-                            AppDelegate.shared.rootViewController.showAccountScreen()
-                        }
-        
-                    }
-                })
-            }
-        } else {
-            showAlert(withMessage: newUser.validationMessage)
-        }
-    }
+//    @IBAction private func signUpButtonTapped(_ sender: Any) {
+//        if newUser.isValid {
+//            MBProgressHUD.showAdded(to: view, animated: true)
+//            
+//            DispatchQueue.global().async { [weak self] in
+//                guard let self = self else { return }
+//                
+//                self.registrationService.registerUser(user: self.newUser, completion: { result in
+//                    DispatchQueue.main.async {
+//                        
+//                        MBProgressHUD.hide(for: self.view, animated: true)
+//                        switch result {
+//                        case .failure(let errorMessage):
+//                                self.showAlert(withMessage: errorMessage)
+//                        case .success:
+//                            AppDelegate.shared.rootViewController.showAccountScreen()
+//                        }
+//        
+//                    }
+//                })
+//            }
+//        } else {
+//            showAlert(withMessage: newUser.validationMessage)
+//        }
+//    }
     
     @objc private func onKeyboardAppear(_ notification: NSNotification) {
         let userInfo: NSDictionary = notification.userInfo! as NSDictionary

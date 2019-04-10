@@ -8,22 +8,24 @@
 
 import Alamofire
 
+public typealias HTTPHeaders = [String:String]
+
 public enum PWTestEndPoint {
     case registration(username: String, email: String, password: String)
-    case userInfo(token: String)
+    case userInfo
     case login(email: String, password: String)
-    case transactions(token: String)
-    case filteredUserList(query: String, token: String)
-    case createTransaction(recipient: String, amount: Int, token: String)
+    case getTransactions
+    case filteredUserList(query: String)
+    case createTransaction(recipient: String, amount: Int)
 }
 
 extension PWTestEndPoint {
     
-    var baseURL: URL {
+    private var baseURL: URL {
         return URL(string: "http://193.124.114.46:3001")!
     }
     
-    var path: String {
+    private var path: String {
         switch self {
         case .registration:
             return "/users"
@@ -31,7 +33,7 @@ extension PWTestEndPoint {
             return "/api/protected/user-info"
         case .login:
             return "/sessions/create"
-        case .transactions:
+        case .getTransactions:
             return "/api/protected/transactions"
         case .filteredUserList:
             return "/api/protected/users/list"
@@ -44,7 +46,7 @@ extension PWTestEndPoint {
         switch self {
         case .registration, .login, .filteredUserList, .createTransaction:
             return .post
-        case .userInfo, .transactions:
+        case .userInfo, .getTransactions:
             return .get
         }
     }
@@ -57,14 +59,17 @@ extension PWTestEndPoint {
         switch self {
         case .registration, .login:
             return nil
-        case .userInfo(let token), .transactions(let token), .filteredUserList(_ , let token), .createTransaction(_ , _, let token):
+        case .userInfo, .getTransactions, .filteredUserList, .createTransaction:
+            guard let token = KeychainTokenItem.token else {
+                preconditionFailure("You need to be authenticated first!")
+            }
             return ["Authorization":"Bearer \(token)"]
         }
     }
     
     var bodyParameters: Parameters? {
         switch self {
-        case .userInfo, .transactions:
+        case .userInfo, .getTransactions:
             return nil
         case .registration(let username, let email, let password):
             return [
@@ -75,10 +80,10 @@ extension PWTestEndPoint {
             return [
                 Constants.APIParameterKey.email: email,
                 Constants.APIParameterKey.password: password ]
-        case .filteredUserList(let query, _):
+        case .filteredUserList(let query):
             return [
                 Constants.APIParameterKey.filter: query ]
-        case .createTransaction(let recipient, let amount, _):
+        case .createTransaction(let recipient, let amount):
             return [
                 Constants.APIParameterKey.name: recipient,
                 Constants.APIParameterKey.amount: amount
@@ -96,8 +101,8 @@ extension PWTestEndPoint: URLRequestConvertible {
         urlRequest.setValue(Constants.ContentType.json.rawValue, forHTTPHeaderField: Constants.HTTPHeaderField.acceptType.rawValue)
         urlRequest.setValue(Constants.ContentType.json.rawValue, forHTTPHeaderField: Constants.HTTPHeaderField.contentType.rawValue)
         
-        if let additionalHeaders = headers {
-            for (key, value) in additionalHeaders {
+        if let headers = headers {
+            for (key, value) in headers {
                 urlRequest.setValue(value, forHTTPHeaderField: key)
             }
         }

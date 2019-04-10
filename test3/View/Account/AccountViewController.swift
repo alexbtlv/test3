@@ -15,7 +15,6 @@ class AccountViewController: UIViewController {
     private let refreshControl = UIRefreshControl()
     private let cellReuseIdentifier = "TransactionTableViewCell"
     private let tableViewHeaderHeight: CGFloat = 220
-    private let userInfoManager = UserInfoManager()
     
     var userVM: UserViewModel?
     var tractionsVM = TransactionsViewModel()
@@ -23,7 +22,7 @@ class AccountViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        fetchUser()
+//        fetchUser()
     }
 
     private func setupUI() {
@@ -39,7 +38,7 @@ class AccountViewController: UIViewController {
         } else {
             tableView.addSubview(refreshControl)
         }
-        refreshControl.addTarget(self, action: #selector(fetchUser), for: .valueChanged)
+//        refreshControl.addTarget(self, action: #selector(fetchUser), for: .valueChanged)
         refreshControl.attributedTitle = NSAttributedString(string: "Refresing user data ...", attributes: nil)
     }
     
@@ -52,41 +51,41 @@ class AccountViewController: UIViewController {
         tableView.reloadData()
     }
     
-    @objc func fetchUser() {
-        refreshControl.beginRefreshing()
-        
-        DispatchQueue.global().async { [weak self] in
-            guard let self = self else { return }
-            
-            self.userInfoManager.getUserInfo(completion: { result in
-                
-                DispatchQueue.main.async {
-                    self.refreshControl.endRefreshing()
-                    switch result {
-                    case.success(let userViewModel):
-                        self.userVM = userViewModel
-                        self.reloadData()
-                    case .failure(let error):
-                        self.showAlert(withMessage: error)
-                    }
-                }
-            }) // end of get user info
-            
-            self.userInfoManager.getTransactions(completion: { result in
-                DispatchQueue.main.async {
-                    self.refreshControl.endRefreshing()
-                    switch result {
-                    case .success(let transactionVMs):
-                        self.tractionsVM.setTransactions(transactionVMs)
-                        self.reloadData()
-                    case .failure(let error):
-                        self.showAlert(withMessage: error)
-                    }
-                }
-                
-            }) // end of get transactions
-        }
-    }
+//    @objc func fetchUser() {
+//        refreshControl.beginRefreshing()
+//
+//        DispatchQueue.global().async { [weak self] in
+//            guard let self = self else { return }
+//
+//            self.userInfoManager.getUserInfo(completion: { result in
+//
+//                DispatchQueue.main.async {
+//                    self.refreshControl.endRefreshing()
+//                    switch result {
+//                    case.success(let userViewModel):
+//                        self.userVM = userViewModel
+//                        self.reloadData()
+//                    case .failure(let error):
+//                        self.showAlert(withMessage: error)
+//                    }
+//                }
+//            }) // end of get user info
+//
+//            self.userInfoManager.getTransactions(completion: { result in
+//                DispatchQueue.main.async {
+//                    self.refreshControl.endRefreshing()
+//                    switch result {
+//                    case .success(let transactionVMs):
+//                        self.tractionsVM.setTransactions(transactionVMs)
+//                        self.reloadData()
+//                    case .failure(let error):
+//                        self.showAlert(withMessage: error)
+//                    }
+//                }
+//
+//            }) // end of get transactions
+//        }
+//    }
 }
 
 // MARK: - Table view data source

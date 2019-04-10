@@ -29,8 +29,12 @@ public struct KeychainTokenItem {
     }
     
     // MARK: Properties
-    
     let service: String
+    
+    static var token: String? {
+        let tokenItem = KeychainTokenItem(service: KeychainConfiguration.tokenService, account: KeychainConfiguration.account)
+        return try? tokenItem.readToken()
+    }
     
     private(set) var account: String
     

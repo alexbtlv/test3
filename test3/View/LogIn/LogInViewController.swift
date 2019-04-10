@@ -16,7 +16,6 @@ class LogInViewController: UIViewController {
     @IBOutlet private weak var scrollView: UIScrollView!
     
     private var user = PotentialUserViewModel()
-    private let sessionManager = UserSessionManager()
     
     deinit {
         NotificationCenter.default.removeObserver(self)
@@ -61,17 +60,26 @@ class LogInViewController: UIViewController {
             DispatchQueue.global().async { [weak self] in
                 guard let self = self else { return }
                 
-                self.sessionManager.signInUser(user: self.user, completion: { result in
-                    DispatchQueue.main.async {
-                        MBProgressHUD.hide(for: self.view, animated: true)
-                        switch result {
-                        case .success:
-                            AppDelegate.shared.rootViewController.showAccountScreen()
-                        case .failure(let error):
-                            self.showAlert(withMessage: error)
-                        }
-                    } // end of main async
+                NetworkingManager.signInUser(email: self.user.email.value!, password: self.user.password.value!, completion: { result in
+                    switch result {
+                    case .success:
+                        print("Success")
+                    case .failure(let error):
+                        self.showAlert(withMessage: error.localizedDescription)
+                    }
                 })
+                
+//                self.sessionManager.signInUser(user: self.user, completion: { result in
+//                    DispatchQueue.main.async {
+//                        MBProgressHUD.hide(for: self.view, animated: true)
+//                        switch result {
+//                        case .success:
+//                            AppDelegate.shared.rootViewController.showAccountScreen()
+//                        case .failure(let error):
+//                            self.showAlert(withMessage: error)
+//                        }
+//                    } // end of main async
+//                })
             }
         } else {
             showAlert(withMessage: user.validationMessage)
