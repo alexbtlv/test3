@@ -42,8 +42,7 @@ class NewUserViewModel: Validatable {
         get {
             var message = ""
             for brokenRule in brokenRules {
-                message += brokenRule.message
-                message += "\n"
+                message += brokenRule.message + "\n"
             }
             return message
         }

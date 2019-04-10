@@ -48,36 +48,8 @@ extension PWTestEndPoint: EndPointType {
         }
     }
     
-    var task: HTTPTask {
-        switch self {
-        case .registration(let username, let email, let password):
-            let bodyParams: [String: Any] = [
-                "username" : username,
-                "email" : email,
-                "password" : password
-            ]
-            return .requestParameters(bodyParameters: bodyParams, urlParameters: nil)
-        
-        case .userInfo:
-            return .requestParametersAndHeaders(bodyParameters: nil, urlParameters: nil, additionalHeaders: headers!)
-        
-        case .login(let email, let password):
-            let bodyParams: [String: Any] = [
-                "email" : email,
-                "password" : password ]
-            return .requestParameters(bodyParameters: bodyParams, urlParameters: nil)
-        
-        case .transactions:
-            return .requestParametersAndHeaders(bodyParameters: nil, urlParameters: nil, additionalHeaders: headers!)
-        case .filteredUserList(let query, _):
-            let bodyParams: [String: Any] = ["filter":query]
-            return .requestParametersAndHeaders(bodyParameters: bodyParams, urlParameters: nil, additionalHeaders: headers!)
-        case .createTransaction(let recipient, let amount, _):
-            let bodyParams: [String: Any] = [
-                "name":recipient,
-                "amount":amount]
-            return .requestParametersAndHeaders(bodyParameters: bodyParams, urlParameters: nil, additionalHeaders: headers!)
-        }
+    var urlParameters: Parameters? {
+        return nil
     }
     
     var headers: HTTPHeaders? {
@@ -89,6 +61,37 @@ extension PWTestEndPoint: EndPointType {
         }
     }
     
+    var bodyParameters: Parameters? {
+        switch self {
+        case .userInfo, .transactions:
+            return nil
+        case .registration(let username, let email, let password):
+            return [
+                Constants.APIParameterKey.email : email,
+                Constants.APIParameterKey.password : password,
+                Constants.APIParameterKey.username: username ]
+        case .login(let email, let password):
+            return [
+                Constants.APIParameterKey.email: email,
+                Constants.APIParameterKey.password: password ]
+        case .filteredUserList(let query, _):
+            return [
+                Constants.APIParameterKey.filter: query ]
+        case .createTransaction(let recipient, let amount, _):
+            return [
+                Constants.APIParameterKey.name: recipient,
+                Constants.APIParameterKey.amount: amount
+            ]
+        }
+    }
+    
+    var task: HTTPTask {
+        if let headers = headers {
+            return .requestParametersAndHeaders(bodyParameters: bodyParameters, urlParameters: urlParameters, additionalHeaders: headers)
+        }
+        
+        return .requestParameters(bodyParameters: bodyParameters, urlParameters: urlParameters)
+    }
 }
 
 

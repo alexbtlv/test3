@@ -9,7 +9,18 @@
 import UIKit
 
 struct Constants {
+
+    struct APIParameterKey {
+        static let password = "password"
+        static let email = "email"
+        static let username = "username"
+        static let filter = "filter"
+        static let name = "name"
+        static let amount = "amount"
+    }
+    
     static let needsToAuthenticate = "needsToAuthenticate"
+    
     static var pwRedColor: UIColor {
         return UIColor(red: 0.7765, green: 0, blue: 0, alpha: 1)
     }

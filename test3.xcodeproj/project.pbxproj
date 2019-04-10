@@ -220,9 +220,9 @@
 		8549A5FA2255ED5400BEF7A6 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				8549A6182257042700BEF7A6 /* Validatable.swift */,
 				8549A60F2256FFEF00BEF7A6 /* UserViewModel.swift */,
 				8549A616225703D900BEF7A6 /* NewUserViewModel.swift */,
-				8549A6182257042700BEF7A6 /* Validatable.swift */,
 				852157B1225841DB00488F5B /* PotentialUserViewModel.swift */,
 				852157B7225861FB00488F5B /* TransactionViewModel.swift */,
 				852157B9225864F400488F5B /* TransactionsViewModel.swift */,
