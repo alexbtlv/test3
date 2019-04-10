@@ -6,7 +6,7 @@
 //  Copyright © 2019 Alexander Batalov. All rights reserved.
 //
 
-import Foundation
+import Alamofire
 
 public enum PWTestEndPoint {
     case registration(username: String, email: String, password: String)
@@ -17,7 +17,8 @@ public enum PWTestEndPoint {
     case createTransaction(recipient: String, amount: Int, token: String)
 }
 
-extension PWTestEndPoint: EndPointType {
+extension PWTestEndPoint {
+    
     var baseURL: URL {
         return URL(string: "http://193.124.114.46:3001")!
     }
@@ -84,14 +85,32 @@ extension PWTestEndPoint: EndPointType {
             ]
         }
     }
-    
-    var task: HTTPTask {
-        if let headers = headers {
-            return .requestParametersAndHeaders(bodyParameters: bodyParameters, urlParameters: urlParameters, additionalHeaders: headers)
-        }
-        
-        return .requestParameters(bodyParameters: bodyParameters, urlParameters: urlParameters)
-    }
 }
 
+extension PWTestEndPoint: URLRequestConvertible {
+    
+    public func asURLRequest() throws -> URLRequest {
+        var urlRequest = URLRequest(url: baseURL.appendingPathComponent(path))
+        urlRequest.httpMethod = httpMethod.rawValue
+        
+        urlRequest.setValue(Constants.ContentType.json.rawValue, forHTTPHeaderField: Constants.HTTPHeaderField.acceptType.rawValue)
+        urlRequest.setValue(Constants.ContentType.json.rawValue, forHTTPHeaderField: Constants.HTTPHeaderField.contentType.rawValue)
+        
+        if let additionalHeaders = headers {
+            for (key, value) in additionalHeaders {
+                urlRequest.setValue(value, forHTTPHeaderField: key)
+            }
+        }
+        
+        if let bodyParameters = bodyParameters {
+            do {
+                urlRequest.httpBody = try JSONSerialization.data(withJSONObject: bodyParameters, options: [])
+            } catch {
+                throw AFError.parameterEncodingFailed(reason: .jsonEncodingFailed(error: error))
+            }
+        }
+        
+        return urlRequest
+    }
+}
 

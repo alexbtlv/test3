@@ -10,5 +10,6 @@ target 'test3' do
   pod 'SearchTextField'
   pod 'MBProgressHUD'
   pod 'FontAwesome.swift'
+  pod 'Alamofire', '~> 5.0.0-beta.3'
 
 end

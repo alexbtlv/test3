@@ -19,6 +19,18 @@ struct Constants {
         static let amount = "amount"
     }
     
+    enum HTTPHeaderField: String {
+        case authentication = "Authorization"
+        case contentType = "Content-Type"
+        case acceptType = "Accept"
+        case acceptEncoding = "Accept-Encoding"
+    }
+    
+    enum ContentType: String {
+        case json = "application/json"
+    }
+    
+    
     static let needsToAuthenticate = "needsToAuthenticate"
     
     static var pwRedColor: UIColor {
