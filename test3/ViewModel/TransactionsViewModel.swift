@@ -18,15 +18,15 @@ enum TransactionSortScope: String {
 
 class TransactionsViewModel {
     
+    internal unowned let view: AccountViewController
     private var transactionVMs = [TransactionViewModel]()
     
     var isEmpty: Bool {
         return transactionVMs.isEmpty
     }
     
-    
-    func setTransactions(_ transactionsVMs: [TransactionViewModel]) {
-        self.transactionVMs = transactionsVMs
+    init(view: AccountViewController) {
+        self.view = view
     }
     
     func numberOfSctions() -> Int {
@@ -57,5 +57,21 @@ class TransactionsViewModel {
             sorted = transactionVMs.sorted { $0.date < $1.date }
         }
         transactionVMs = transactionVMs == sorted ? transactionVMs.reversed() : sorted
+    }
+    
+    func fetchTransactions() {
+        self.view.refreshControl.beginRefreshing()
+        let futureTransactions = NetworkingManager.getTransactions()
+        futureTransactions.execute { [weak self] result in
+            guard let self = self else { return }
+            self.view.refreshControl.endRefreshing()
+            switch result {
+            case .success(let transactionsT):
+                self.transactionVMs = transactionsT.transactions.compactMap { TransactionViewModel($0) }
+                self.view.tableView.reloadData()
+            case.failure(let error):
+                self.view.showAlert(withMessage: error.localizedDescription)
+            }
+        }
     }
 }

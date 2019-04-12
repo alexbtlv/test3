@@ -65,7 +65,7 @@ class CreateTransactionViewController: UIViewController {
                 switch result {
                 case .success(let transactionToken):
                     if let accountVC = self.previousViewController as? AccountViewController {
-                        accountVC.fetchUser()
+                        accountVC.fetchData()
                     }
                     let transactionVM = TransactionViewModel(transactionToken.transaction)!
                     let alertVC = UIAlertController(title: "Success", message: "Transaction succesful!\n \(self.userVM.name) -->\(transactionVM.amountText) \(transactionVM.recipient)", preferredStyle: .alert)

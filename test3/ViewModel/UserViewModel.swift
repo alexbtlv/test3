@@ -7,35 +7,55 @@
 //
 
 import Foundation
-
+import MBProgressHUD
 
 class UserViewModel {
     
-    private let user: User
+    internal unowned let view: AccountViewController
+    private var user: User?
     
     var greetingText: String {
-        return "Hey, " + user.name.capitalized + "!"
+        if let username = user?.name {
+            return "Hey, " + username.capitalized + "!"
+        }
+        return "Hey!"
     }
     
     var balanceText: String {
-        return "\(user.balance)" + " PW"
+        return "\(user?.balance ?? 0)" + " PW"
     }
-    
+
     var balance: Int {
-        return user.balance
+        return user?.balance ?? 0
     }
     
     var name: String {
-        return user.name
+        return user?.name ?? ""
     }
     
-    init(user: User) {
-        self.user = user
+    init(view: AccountViewController) {
+        self.view = view
     }
     
     static func logOut() throws {
         let tokenItem = KeychainTokenItem(service: KeychainConfiguration.tokenService, account: KeychainConfiguration.account)
         try tokenItem.deleteItem()
         AppDelegate.shared.rootViewController.showWelcomeScreen()
+    }
+    
+    func fetchUserData() {
+        view.refreshControl.beginRefreshing()
+        let futureUser = NetworkingManager.getUserInfo()
+        futureUser.execute { [weak self] result  in
+            guard let self = self else { return }
+            self.view.refreshControl.endRefreshing()
+            switch result {
+            case .success(let userToken):
+                self.user = userToken.user
+                self.view.tableView.reloadData()
+            case.failure(let error):
+                self.view.showAlert(withMessage: error.localizedDescription)
+            }
+        }
     }
 }

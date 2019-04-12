@@ -12,17 +12,20 @@ class AccountViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    private let refreshControl = UIRefreshControl()
+    let refreshControl = UIRefreshControl()
     private let cellReuseIdentifier = "TransactionTableViewCell"
     private let tableViewHeaderHeight: CGFloat = 220
     
-    var userVM: UserViewModel?
-    var tractionsVM = TransactionsViewModel()
+    var userVM: UserViewModel!
+    var tractionsVM: TransactionsViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        fetchUser()
+        userVM = UserViewModel(view: self)
+        tractionsVM = TransactionsViewModel(view: self)
+        
+        fetchData()
     }
 
     private func setupUI() {
@@ -38,7 +41,7 @@ class AccountViewController: UIViewController {
         } else {
             tableView.addSubview(refreshControl)
         }
-        refreshControl.addTarget(self, action: #selector(fetchUser), for: .valueChanged)
+        refreshControl.addTarget(self, action: #selector(fetchData), for: .valueChanged)
         refreshControl.attributedTitle = NSAttributedString(string: "Refresing user data ...", attributes: nil)
     }
     
@@ -51,35 +54,9 @@ class AccountViewController: UIViewController {
         tableView.reloadData()
     }
     
-    @objc func fetchUser() {
-        refreshControl.beginRefreshing()
-        
-        let futureUser = NetworkingManager.getUserInfo()
-        futureUser.execute { [weak self] result  in
-            guard let self = self else { return }
-            self.refreshControl.endRefreshing()
-            switch result {
-            case .success(let userToken):
-                self.userVM = UserViewModel(user: userToken.user)
-                self.tableView.reloadData()
-            case.failure(let error):
-                self.showAlert(withMessage: error.localizedDescription)
-            }
-        }
-
-        let futureTransactions = NetworkingManager.getTransactions()
-        futureTransactions.execute { [weak self] result in
-            guard let self = self else { return }
-            self.refreshControl.endRefreshing()
-            switch result {
-            case .success(let transactionsT):
-                let tVMs = transactionsT.transactions.compactMap { TransactionViewModel($0) }
-                self.tractionsVM.setTransactions(tVMs)
-                self.tableView.reloadData()
-            case.failure(let error):
-                self.showAlert(withMessage: error.localizedDescription)
-            }
-        }
+    @objc func fetchData() {
+        userVM.fetchUserData()
+        tractionsVM.fetchTransactions()
     }
 }
 
