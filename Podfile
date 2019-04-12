@@ -6,10 +6,14 @@ target 'test3' do
   use_frameworks!
 
   # Pods for test3
+  # UI
   pod 'TextFieldEffects'
   pod 'SearchTextField'
   pod 'MBProgressHUD'
   pod 'FontAwesome.swift'
+  
+  # Networking
   pod 'Alamofire', '~> 5.0.0-beta.3'
+  pod 'PromisedFuture'
 
 end

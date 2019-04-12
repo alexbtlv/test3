@@ -7,36 +7,45 @@
 //
 
 import Alamofire
+import PromisedFuture
 
 class NetworkingManager {
     
-    @discardableResult private static func performRequest<T:Decodable>(route: PWTestEndPoint, completion: @escaping (Result<T,Error>)->Void) -> DataRequest {
-        return AF.request(route).responseDecodable(completionHandler: { (response: DataResponse<T>) in
-            completion(response.result)
+    @discardableResult private static func performRequest<T:Decodable>(route: PWTestEndPoint) -> Future<T> {
+        return Future(operation: { completion in
+            AF.request(route).responseDecodable(completionHandler: { (response: DataResponse<T>) in
+                print(response.debugDescription)
+                switch response.result {
+                case .success(let value):
+                    completion(.success(value))
+                case .failure(let error):
+                    completion(.failure(error))
+                }
+            })
         })
     }
     
-    static func registerUser(username: String, email: String, password: String, completion: @escaping (Result<User, Error>) -> Void) {
-        performRequest(route: PWTestEndPoint.registration(username: username, email: email, password: password), completion: completion)
+    static func registerUser(username: String, email: String, password: String) -> Future<Token> {
+        return performRequest(route: PWTestEndPoint.registration(username: username, email: email, password: password))
     }
     
-    static func getUserInfo(completion: @escaping (Result<User, Error>) -> Void) {
-        performRequest(route: PWTestEndPoint.userInfo, completion: completion)
+    static func getUserInfo() -> Future<UserToken> {
+        return performRequest(route: PWTestEndPoint.userInfo)
     }
     
-    static func getTransactions(completion: @escaping (Result<[Transaction], Error>) -> Void) {
-        performRequest(route: PWTestEndPoint.getTransactions, completion: completion)
+    static func getTransactions() -> Future<TransactionsToken> {
+        return performRequest(route: PWTestEndPoint.getTransactions)
     }
     
-    static func signInUser(email: String, password: String, completion: @escaping (Result<Token, Error>) -> Void) {
-        performRequest(route: PWTestEndPoint.login(email: email, password: password), completion: completion)
+    static func signInUser(email: String, password: String) -> Future<Token> {
+        return performRequest(route: PWTestEndPoint.login(email: email, password: password))
     }
     
-    static func getUsernames(query: String, completion: @escaping (Result<[Recipient], Error>) -> Void) {
-        performRequest(route: PWTestEndPoint.filteredUserList(query: query), completion: completion)
+    static func getUsernames(query: String) -> Future<[Recipient]> {
+        return performRequest(route: PWTestEndPoint.filteredUserList(query: query))
     }
     
-    static func sendTransaction(recipient: String, amount: Int, completion: @escaping (Result<Transaction, Error>) -> Void) {
-        performRequest(route: PWTestEndPoint.createTransaction(recipient: recipient, amount: amount), completion: completion)
+    static func sendTransaction(recipient: String, amount: Int) -> Future<TransactionToken> {
+        return performRequest(route: PWTestEndPoint.createTransaction(recipient: recipient, amount: amount))
     }
 }

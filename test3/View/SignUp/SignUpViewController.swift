@@ -78,31 +78,37 @@ class SignUpViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(onKeyboardDisappear(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
-//    @IBAction private func signUpButtonTapped(_ sender: Any) {
-//        if newUser.isValid {
-//            MBProgressHUD.showAdded(to: view, animated: true)
-//            
-//            DispatchQueue.global().async { [weak self] in
-//                guard let self = self else { return }
-//                
-//                self.registrationService.registerUser(user: self.newUser, completion: { result in
-//                    DispatchQueue.main.async {
-//                        
-//                        MBProgressHUD.hide(for: self.view, animated: true)
-//                        switch result {
-//                        case .failure(let errorMessage):
-//                                self.showAlert(withMessage: errorMessage)
-//                        case .success:
-//                            AppDelegate.shared.rootViewController.showAccountScreen()
-//                        }
-//        
-//                    }
-//                })
-//            }
-//        } else {
-//            showAlert(withMessage: newUser.validationMessage)
-//        }
-//    }
+    @IBAction private func signUpButtonTapped(_ sender: Any) {
+        if newUser.isValid {
+            MBProgressHUD.showAdded(to: view, animated: true)
+            
+            DispatchQueue.global().async { [weak self] in
+                guard let self = self else { return }
+                
+                let futureUser = NetworkingManager.registerUser(username: self.newUser.name.value!, email: self.newUser.email.value!, password: self.newUser.newPassword.value!)
+                futureUser.execute(completion: { result in
+                    DispatchQueue.main.async {
+                        MBProgressHUD.hide(for: self.view, animated: true)
+                        switch result {
+                        case .failure(let errorMessage):
+                            self.showAlert(withMessage: errorMessage.localizedDescription)
+                        case .success(let tokenID):
+                            do {
+                                let tokenItem = KeychainTokenItem(service: KeychainConfiguration.tokenService, account: KeychainConfiguration.account)
+                                try tokenItem.saveToken(tokenID.token)
+                                AppDelegate.shared.rootViewController.showAccountScreen()
+                            } catch {
+                                print(error.localizedDescription)
+                            }
+                        }
+                        
+                    }
+                })
+            }
+        } else {
+            showAlert(withMessage: newUser.validationMessage)
+        }
+    }
     
     @objc private func onKeyboardAppear(_ notification: NSNotification) {
         let userInfo: NSDictionary = notification.userInfo! as NSDictionary

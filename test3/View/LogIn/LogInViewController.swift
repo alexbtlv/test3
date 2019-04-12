@@ -57,30 +57,23 @@ class LogInViewController: UIViewController {
     @IBAction private func logInButtonTapped(_ sender: Any) {
         if user.isValid {
             MBProgressHUD.showAdded(to: view, animated: true)
-            DispatchQueue.global().async { [weak self] in
+            let signInFuture = NetworkingManager.signInUser(email: self.user.email.value!, password: self.user.password.value!)
+            signInFuture.execute(completion: { [weak self] result in
                 guard let self = self else { return }
-                
-                NetworkingManager.signInUser(email: self.user.email.value!, password: self.user.password.value!, completion: { result in
-                    switch result {
-                    case .success:
-                        print("Success")
-                    case .failure(let error):
-                        self.showAlert(withMessage: error.localizedDescription)
+                MBProgressHUD.hide(for: self.view, animated: true)
+                switch result {
+                case .success(let tokenID):
+                    do {
+                        let tokenItem = KeychainTokenItem(service: KeychainConfiguration.tokenService, account: KeychainConfiguration.account)
+                        try tokenItem.saveToken(tokenID.token)
+                        AppDelegate.shared.rootViewController.showAccountScreen()
+                    } catch {
+                        print(error.localizedDescription)
                     }
-                })
-                
-//                self.sessionManager.signInUser(user: self.user, completion: { result in
-//                    DispatchQueue.main.async {
-//                        MBProgressHUD.hide(for: self.view, animated: true)
-//                        switch result {
-//                        case .success:
-//                            AppDelegate.shared.rootViewController.showAccountScreen()
-//                        case .failure(let error):
-//                            self.showAlert(withMessage: error)
-//                        }
-//                    } // end of main async
-//                })
-            }
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            })
         } else {
             showAlert(withMessage: user.validationMessage)
         }
