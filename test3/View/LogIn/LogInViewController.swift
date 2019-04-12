@@ -15,7 +15,7 @@ class LogInViewController: UIViewController {
     @IBOutlet private weak var passwordTextField: BindingHoshiTextField!
     @IBOutlet private weak var scrollView: UIScrollView!
     
-    private var user = PotentialUserViewModel()
+    private var user: PotentialUserViewModel!
     
     deinit {
         NotificationCenter.default.removeObserver(self)
@@ -23,6 +23,7 @@ class LogInViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        user = PotentialUserViewModel(viewController: self)
         setupUI()
     }
     
@@ -56,24 +57,7 @@ class LogInViewController: UIViewController {
 
     @IBAction private func logInButtonTapped(_ sender: Any) {
         if user.isValid {
-            MBProgressHUD.showAdded(to: view, animated: true)
-            let signInFuture = NetworkingManager.signInUser(email: self.user.email.value!, password: self.user.password.value!)
-            signInFuture.execute(completion: { [weak self] result in
-                guard let self = self else { return }
-                MBProgressHUD.hide(for: self.view, animated: true)
-                switch result {
-                case .success(let tokenID):
-                    do {
-                        let tokenItem = KeychainTokenItem(service: KeychainConfiguration.tokenService, account: KeychainConfiguration.account)
-                        try tokenItem.saveToken(tokenID.token)
-                        AppDelegate.shared.rootViewController.showAccountScreen()
-                    } catch {
-                        print(error.localizedDescription)
-                    }
-                case .failure(let error):
-                    print(error.localizedDescription)
-                }
-            })
+            user.performSignInRequest()
         } else {
             showAlert(withMessage: user.validationMessage)
         }

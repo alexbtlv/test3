@@ -6,11 +6,13 @@
 //  Copyright © 2019 Alexander Batalov. All rights reserved.
 //
 
-import Foundation
+import UIKit
+import MBProgressHUD
 
 class NewUserViewModel: Validatable {
     
     internal var brokenRules = [BrokenRule]()
+    internal unowned let view: SignUpViewController
     
     var newPassword = Dynamic<String>("")
     var confirmPassword = Dynamic<String>("")
@@ -56,6 +58,10 @@ class NewUserViewModel: Validatable {
         }
     }
     
+    init(viewController: SignUpViewController) {
+        self.view = viewController
+    }
+    
     private func validate() {
         if !hasValidName {
             self.brokenRules.append(BrokenRule(propertyName: "name", message: "Name can not be empty"))
@@ -68,5 +74,30 @@ class NewUserViewModel: Validatable {
         if !passwordsAreMatching {
             self.brokenRules.append(BrokenRule(propertyName: "confirmPassword", message: "Passwords are not matching"))
         }
+    }
+    
+    func performSignUpRequest()  {
+        guard let username = name.value, let email = email.value, let password = newPassword.value else {
+            preconditionFailure("Make sure to validate user inputs.")
+        }
+        
+        MBProgressHUD.showAdded(to: view.view, animated: true)
+        let futureUser = NetworkingManager.registerUser(username: username, email: email, password: password)
+        futureUser.execute(completion: { [weak self] result in
+            guard let self = self else { return }
+            MBProgressHUD.hide(for: self.view.view, animated: true)
+            switch result {
+            case .failure(let errorMessage):
+                self.view.showAlert(withMessage: errorMessage.localizedDescription)
+            case .success(let tokenID):
+                do {
+                    let tokenItem = KeychainTokenItem(service: KeychainConfiguration.tokenService, account: KeychainConfiguration.account)
+                    try tokenItem.saveToken(tokenID.token)
+                    AppDelegate.shared.rootViewController.showAccountScreen()
+                } catch {
+                    self.view.showAlert(withMessage: error.localizedDescription)
+                }
+            }
+        })
     }
 }

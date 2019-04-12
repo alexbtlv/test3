@@ -17,7 +17,7 @@ class SignUpViewController: UIViewController {
     @IBOutlet private weak var repeatPasswordTextField: BindingHoshiTextField!
     @IBOutlet private weak var scrollView: UIScrollView!
     
-    private let newUser = NewUserViewModel()
+    private var newUser: NewUserViewModel!
     
     deinit {
         NotificationCenter.default.removeObserver(self)
@@ -25,6 +25,7 @@ class SignUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        newUser = NewUserViewModel(viewController: self)
         setupUI()
     }
     
@@ -80,31 +81,7 @@ class SignUpViewController: UIViewController {
     
     @IBAction private func signUpButtonTapped(_ sender: Any) {
         if newUser.isValid {
-            MBProgressHUD.showAdded(to: view, animated: true)
-            
-            DispatchQueue.global().async { [weak self] in
-                guard let self = self else { return }
-                
-                let futureUser = NetworkingManager.registerUser(username: self.newUser.name.value!, email: self.newUser.email.value!, password: self.newUser.newPassword.value!)
-                futureUser.execute(completion: { result in
-                    DispatchQueue.main.async {
-                        MBProgressHUD.hide(for: self.view, animated: true)
-                        switch result {
-                        case .failure(let errorMessage):
-                            self.showAlert(withMessage: errorMessage.localizedDescription)
-                        case .success(let tokenID):
-                            do {
-                                let tokenItem = KeychainTokenItem(service: KeychainConfiguration.tokenService, account: KeychainConfiguration.account)
-                                try tokenItem.saveToken(tokenID.token)
-                                AppDelegate.shared.rootViewController.showAccountScreen()
-                            } catch {
-                                print(error.localizedDescription)
-                            }
-                        }
-                        
-                    }
-                })
-            }
+            newUser.performSignUpRequest()
         } else {
             showAlert(withMessage: newUser.validationMessage)
         }
